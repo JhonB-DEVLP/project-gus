@@ -60,7 +60,19 @@
   },
   "live": {
     "title": "Leituras ao vivo",
-    "lead": "Modelos em alta no Hugging Face Hub, buscados pelo servidor a cada acesso."
+    "lead": "Modelos em alta no Hugging Face Hub, buscados pelo servidor a cada acesso.",
+    "read": "Lido às {time} UTC",
+    "cols": {
+      "rank": "#",
+      "model": "Modelo",
+      "task": "Tarefa",
+      "likes": "Curtidas",
+      "downloads": "Downloads"
+    },
+    "noTask": "—",
+    "error": "Não foi possível acessar o Hugging Face. O resto da página continua funcionando.",
+    "retry": "Tentar de novo",
+    "empty": "Nenhum modelo em alta agora."
   },
   "contactBand": {
     "title": "Contato",

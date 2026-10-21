@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { buttonClass } from "@/components/button";
 import { Container } from "@/components/container";
+import { LiveReadTime, LiveReadTimeSkeleton, LiveSkeleton, LiveTable } from "@/components/live-readings";
 import { PageShell } from "@/components/page-shell";
 import { SectionHeading } from "@/components/section-heading";
 import { WorkList } from "@/components/work-list";
@@ -94,14 +96,21 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Container>
       </section>
 
-      {/* §2 Live readings */}
+      {/* §2 Live readings: fetched per request, streamed after the rest. */}
       <section id="live" aria-labelledby="live-h">
         <Container className="flex flex-col gap-4 pb-14 lg:gap-6 lg:pb-24">
-          <SectionHeading id="live-h" n={2}>
-            {dict.live.title}
-          </SectionHeading>
+          <div className="flex flex-col gap-4 md:flex-row md:items-baseline md:justify-between">
+            <SectionHeading id="live-h" n={2}>
+              {dict.live.title}
+            </SectionHeading>
+            <Suspense fallback={<LiveReadTimeSkeleton />}>
+              <LiveReadTime dict={dict} />
+            </Suspense>
+          </div>
           <p className="max-w-160 text-muted">{dict.live.lead}</p>
-          {/* M3: the live table streams in here, inside <Suspense>. */}
+          <Suspense fallback={<LiveSkeleton dict={dict} />}>
+            <LiveTable lang={lang} dict={dict} />
+          </Suspense>
         </Container>
       </section>
 

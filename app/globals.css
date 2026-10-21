@@ -23,6 +23,7 @@
   --dur-fast: 150ms;
   --dur-base: 250ms;
   --dur-hero: 800ms;
+  --dur-count: 1100ms; /* Live numbers counting up (read by CountUp) */
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --stagger: 90ms;
 

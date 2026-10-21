@@ -60,7 +60,19 @@
   },
   "live": {
     "title": "Live readings",
-    "lead": "Trending models on the Hugging Face Hub, fetched by the server on every request."
+    "lead": "Trending models on the Hugging Face Hub, fetched by the server on every request.",
+    "read": "Read {time} UTC",
+    "cols": {
+      "rank": "#",
+      "model": "Model",
+      "task": "Task",
+      "likes": "Likes",
+      "downloads": "Downloads"
+    },
+    "noTask": "—",
+    "error": "Couldn't reach Hugging Face. The rest of the page still works.",
+    "retry": "Retry",
+    "empty": "No trending models right now."
   },
   "contactBand": {
     "title": "Contact",
