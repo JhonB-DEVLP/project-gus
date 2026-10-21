@@ -6,12 +6,17 @@ export const sourceUrl = "https://github.com/JhonB-DEVLP/project-gus";
 // Profiles for the JSON-LD `sameAs`.
 export const profileUrls = ["https://github.com/JhonB-DEVLP"];
 
-// Request header that proxy.ts sets to the path, for the 404 page
-// (not-found gets no props).
-export const PATHNAME_HEADER = "x-pathname";
-
 // Public origin, no trailing slash (metadataBase, canonical, sitemap).
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/+$/, "");
+// NEXT_PUBLIC_SITE_URL wins. On Vercel, the production domain (a system
+// variable, host only) is the fallback, so a missing variable never ships
+// localhost canonicals. Empty strings count as unset.
+function origin(): string {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  return "http://localhost:3000";
+}
+
+export const siteUrl = origin().replace(/\/+$/, "");
 
 // Canonical for this locale plus the same page in every locale (hreflang).
 // `path` is the route after the locale: "" for home, "/contact"…

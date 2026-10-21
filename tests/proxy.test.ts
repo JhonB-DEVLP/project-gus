@@ -30,20 +30,6 @@ describe("proxy redirects", () => {
     expect(response.headers.get("location")).toBeNull();
   });
 
-  // NextResponse.next({ request: { headers } }) carries the new request
-  // headers to the app as x-middleware-request-* on the response.
-  it("passes the path to the app in x-pathname", () => {
-    const response = proxy(request("/en/work/prj-04"));
-    expect(response.headers.get("x-middleware-request-x-pathname")).toBe("/en/work/prj-04");
-  });
-
-  it("overwrites an x-pathname sent by the client", () => {
-    const forged = new NextRequest(new URL("/en/nope", "https://example.com"), {
-      headers: { "x-pathname": "<script>alert(1)</script>" },
-    });
-    expect(proxy(forged).headers.get("x-middleware-request-x-pathname")).toBe("/en/nope");
-  });
-
   it("does not treat a lookalike prefix as a locale", () => {
     expect(proxy(request("/english")).headers.get("location")).toBe("https://example.com/en/english");
   });
