@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project Léia desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:4px}
+a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+@keyframes fadeup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.ln{display:block;overflow:hidden}
+.ln>span{display:block;animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.after{animation:fadeup .6s cubic-bezier(.2,.7,.2,1) .35s both}
+.fig{animation:fadeup .7s cubic-bezier(.2,.7,.2,1) .5s both}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="background: {{c.bg}}; color: {{c.fg}}; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; min-height: 100%;">
+<div style="max-width: 1312px; margin: 0 auto; padding: 0 64px; display: flex; flex-direction: column;">
+
+<header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 0; border-bottom: 1px solid {{c.fg}};">
+<div style="display: flex; align-items: baseline; gap: 16px;">
+<a href="Main.dc.html" style="font-stretch: 70%; font-weight: 700; font-size: 24px; text-transform: uppercase;">Jhon<span style="color: {{c.accent}};">Silva</span></a>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};">REV 2026.10</span>
+</div>
+<nav aria-label="Main" style="display: flex; gap: 32px; font-family: 'JetBrains Mono', monospace; font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em;">
+<a href="Main.dc.html" aria-current="page" style="text-decoration: underline; text-underline-offset: 4px;">Work</a><a href="Main.dc.html">Live</a><a href="ContactMobile.dc.html">Contact</a>
+</nav>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};">EN / PT · DARK</span>
+</header>
+
+<nav aria-label="Breadcrumb" style="padding: 32px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};"><a href="Main.dc.html">WORK</a> / <span aria-current="page" style="color: {{c.accent}};">PRJ-02</span></nav>
+
+<section style="display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 64px; padding: 32px 0 80px; align-items: end; border-bottom: 2px solid {{c.fg}};">
+<div style="display: flex; flex-direction: column; gap: 24px;">
+<h1 style="margin: 0; font-stretch: 66%; font-weight: 700; font-size: 200px; line-height: 0.85; text-transform: uppercase;"><span class="ln"><span>Léia</span></span></h1>
+<p class="after" style="margin: 0; font-size: 24px; line-height: 1.4; max-width: 560px;">An AI assistant on WhatsApp that answers condominium residents and passes to the manager what needs a person.</p>
+</div>
+<dl style="margin: 0; display: grid; grid-template-columns: 112px minmax(0, 1fr); border-top: 2px solid {{c.fg}}; font-size: 15px; line-height: 1.5;">
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}}; padding: 12px 0; border-bottom: 1px solid {{c.rule}};">ROLE</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid {{c.rule}};">CTO</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}}; padding: 12px 0; border-bottom: 1px solid {{c.rule}};">STATUS</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid {{c.rule}}; display: flex; align-items: center; gap: 8px;"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: {{c.warn}};"></span>Early customers</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}}; padding: 12px 0; border-bottom: 1px solid {{c.rule}};">CHANNEL</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid {{c.rule}};">WhatsApp Cloud API (Meta), in coexistence with the phone app</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}}; padding: 12px 0; border-bottom: 1px solid {{c.rule}};">BACKEND</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid {{c.rule}};">Django 6 · DRF · PostgreSQL + pgvector · Redis · Celery · Channels</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}}; padding: 12px 0; border-bottom: 1px solid {{c.rule}};">AI</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid {{c.rule}};">LangChain · LangGraph · OpenRouter · OpenAI embeddings</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}}; padding: 12px 0; border-bottom: 1px solid {{c.rule}};">INFRA</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid {{c.rule}};">AWS EC2</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}}; padding: 12px 0; border-bottom: 1px solid {{c.rule}};">LINK</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid {{c.rule}};"><a href="https://www.assistenteleia.com.br/" style="text-decoration: underline; text-underline-offset: 4px;">assistenteleia.com.br ↗</a></dd>
+</dl>
+</section>
+
+<section aria-label="Screenshots" class="fig" style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 24px; padding: 48px 0; border-bottom: 1px solid {{c.rule}};">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; grid-row: span 2;">
+<div role="img" aria-label="Screenshot placeholder: manager inbox" style="aspect-ratio: 16 / 10; border: 1px solid {{c.rule}}; background: {{c.surface}}; display: flex;">
+<div style="width: 28%; border-right: 1px solid {{c.rule}}; display: flex; flex-direction: column;">
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="6"><div style="display: flex; gap: 10px; align-items: center; padding: 14px; border-bottom: 1px solid {{c.rule}};"><span style="width: 28px; height: 28px; border-radius: 50%; background: {{c.rule}}; flex: none;"></span><span style="flex: 1; display: flex; flex-direction: column; gap: 6px;"><span style="height: 7px; width: {{r.a}}; background: {{c.fg}};"></span><span style="height: 6px; width: {{r.b}}; background: {{c.rule}};"></span></span></div></sc-for>
+</div>
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; padding: 24px;">
+<span style="align-self: flex-start; width: 46%; height: 44px; background: {{c.rule}};"></span>
+<span style="align-self: flex-end; width: 52%; height: 64px; background: {{c.accent}}; opacity: 0.85;"></span>
+<span style="align-self: flex-start; width: 34%; height: 32px; background: {{c.rule}};"></span>
+<span style="align-self: flex-end; width: 44%; height: 44px; background: {{c.accent}}; opacity: 0.85;"></span>
+<span style="height: 40px; border: 1px solid {{c.field}}; margin-top: 8px;"></span>
+</div>
+</div>
+<figcaption style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};"><span style="color: {{c.accent}};">FIG. 1</span> · Manager inbox, demo account · [print to capture]</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+<div role="img" aria-label="Screenshot placeholder: resident chat on WhatsApp" style="aspect-ratio: 4 / 3; border: 1px solid {{c.rule}}; background: {{c.surface}}; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; padding: 18px;">
+<span style="align-self: flex-end; width: 60%; height: 30px; background: {{c.rule}};"></span>
+<span style="align-self: flex-start; width: 72%; height: 46px; background: {{c.accent}}; opacity: 0.85;"></span>
+<span style="align-self: flex-end; width: 40%; height: 24px; background: {{c.rule}};"></span>
+</div>
+<figcaption style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};"><span style="color: {{c.accent}};">FIG. 2</span> · A resident asks on WhatsApp · [print to capture]</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+<div role="img" aria-label="Screenshot placeholder: building documents" style="aspect-ratio: 4 / 3; border: 1px solid {{c.rule}}; background: {{c.surface}}; display: flex; flex-direction: column; gap: 10px; padding: 18px;">
+<span style="height: 8px; width: 50%; background: {{c.fg}};"></span>
+<sc-for list="{{docs}}" as="d" hint-placeholder-count="4"><span style="display: flex; justify-content: space-between; gap: 8px; padding: 8px 0; border-top: 1px solid {{c.rule}};"><span style="height: 7px; width: {{d.w}}; background: {{c.rule}};"></span><span style="height: 7px; width: 14%; background: {{c.accent}};"></span></span></sc-for>
+</div>
+<figcaption style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};"><span style="color: {{c.accent}};">FIG. 3</span> · Building documents indexed for answers · [print to capture]</figcaption>
+</figure>
+</section>
+
+<section style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 64px; padding: 64px 0; border-bottom: 1px solid {{c.rule}};">
+<h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 12px; letter-spacing: 0.08em; color: {{c.accent}};">1 · THE PROBLEM</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.6; max-width: 680px;">Residents ask the building the same questions every day: opening hours, rules, fees, bookings. Léia answers them on the WhatsApp number the condominium already uses, from the building's own documents.</p>
+</section>
+
+<section style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 64px; padding: 64px 0; border-bottom: 1px solid {{c.rule}};">
+<h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 12px; letter-spacing: 0.08em; color: {{c.accent}};">2 · WHAT WE BUILT</h2>
+<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; max-width: 900px;">
+<li style="padding: 14px 0; border-top: 1px solid {{c.rule}}; font-size: 17px; line-height: 1.5;">RAG agent over the building's rules and bylaws, with OCR for scanned PDFs</li>
+<li style="padding: 14px 0; border-top: 1px solid {{c.rule}}; font-size: 17px; line-height: 1.5;">Voice notes transcribed and photos described before the agent replies</li>
+<li style="padding: 14px 0; border-top: 1px solid {{c.rule}}; font-size: 17px; line-height: 1.5;">Human handoff: inbox, manager queue, incidents and notices</li>
+<li style="padding: 14px 0; border-top: 1px solid {{c.rule}}; font-size: 17px; line-height: 1.5;">Common-area bookings with optional Google Calendar sync</li>
+<li style="padding: 14px 0; border-top: 1px solid {{c.rule}}; font-size: 17px; line-height: 1.5;">Virtual phone numbers verified inside the app, no SIM card</li>
+<li style="padding: 14px 0; border-top: 1px solid {{c.rule}}; font-size: 17px; line-height: 1.5;">Billing through Asaas with a conversation quota per plan</li>
+</ul>
+</section>
+
+<section style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 64px; padding: 64px 0; border-bottom: 2px solid {{c.fg}};">
+<h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 12px; letter-spacing: 0.08em; color: {{c.accent}};">3 · DECISIONS</h2>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 32px; max-width: 760px;">
+<li style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: {{c.muted}};">D-01</span><span style="display: flex; flex-direction: column; gap: 6px;"><strong style="font-size: 20px; font-weight: 600;">Official API, same number</strong><span style="font-size: 17px; line-height: 1.6; color: {{c.muted}};">Coexistence lets the manager keep the phone app. When the manager replies from the phone, Léia steps back from that conversation.</span></span></li>
+<li style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: {{c.muted}};">D-02</span><span style="display: flex; flex-direction: column; gap: 6px;"><strong style="font-size: 20px; font-weight: 600;">Chunk by section, not by size</strong><span style="font-size: 17px; line-height: 1.6; color: {{c.muted}};">Bylaws are split along their own sections, so an answer quotes one rule instead of half of two.</span></span></li>
+<li style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: {{c.muted}};">D-03</span><span style="display: flex; flex-direction: column; gap: 6px;"><strong style="font-size: 20px; font-weight: 600;">Slow work off the request</strong><span style="font-size: 17px; line-height: 1.6; color: {{c.muted}};">Transcription, OCR and indexing run in Celery workers; the inbox updates over WebSockets.</span></span></li>
+</ol>
+</section>
+
+<nav aria-label="Projects" style="display: flex; justify-content: space-between; gap: 24px; padding: 32px 0 48px;">
+<a href="Main.dc.html" style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};">← PRJ-01</span><span style="font-stretch: 70%; font-weight: 700; font-size: 32px; text-transform: uppercase;">Zapichat</span></a>
+<a href="Main.dc.html" style="display: flex; flex-direction: column; gap: 6px; text-align: right;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};">PRJ-03 →</span><span style="font-stretch: 70%; font-weight: 700; font-size: 32px; text-transform: uppercase;">Nextech</span></a>
+</nav>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":2600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var dark = this.props.dark ?? true;
+    var L = {warn:'#8A5A00',surface:'#FFFFFF',field:'#7F8A83',bg:'#F3F5F2',fg:'#0E1A14',muted:'#4A564F',rule:'#D6DCD7',accent:'#00573A'};
+    var D = {warn:'#E3B341',surface:'#161F1A',field:'#5F6B64',bg:'#0F1612',fg:'#E4E8E3',muted:'#9AA59E',rule:'#26302A',accent:'#4FBF8A'};
+    return {
+      c: dark ? D : L,
+      rows: [{a:'70%',b:'90%'},{a:'55%',b:'80%'},{a:'64%',b:'72%'},{a:'48%',b:'86%'},{a:'72%',b:'60%'},{a:'58%',b:'78%'}],
+      docs: [{w:'62%'},{w:'48%'},{w:'70%'},{w:'54%'}]
+    };
+  }
+}
+</script>
+</body>
+</html>

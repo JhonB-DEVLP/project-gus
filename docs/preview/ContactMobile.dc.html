@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Contact mobile states</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:4px}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 1500px; box-sizing: border-box; background: {{c.bg}}; color: {{c.fg}}; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; padding: 0 16px; display: flex; flex-direction: column;">
+
+<header style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid {{c.fg}};">
+<a href="Main.dc.html" style="font-stretch: 70%; font-weight: 700; font-size: 20px; text-transform: uppercase;">Jhon<span style="color: {{c.accent}};">Silva</span></a>
+<button type="button" aria-expanded="false" aria-label="Open menu" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; min-width: 44px; min-height: 44px; padding: 0 14px; background: transparent; color: {{c.fg}}; border: 1px solid {{c.field}}; border-radius: 2px;">MENU</button>
+</header>
+
+<section style="display: flex; flex-direction: column; gap: 16px; padding: 40px 0 32px;">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.accent}};">§3 · CONTACT</span>
+<h1 style="margin: 0; font-stretch: 66%; font-weight: 700; font-size: 56px; line-height: 0.92; text-transform: uppercase;">Send a message</h1>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: {{c.muted}};">I reply within one business day. Every field is required.</p>
+</section>
+
+<form novalidate="novalidate" style="display: flex; flex-direction: column; gap: 20px; padding-bottom: 32px;">
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<label for="c-name" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.04em;">NAME</label>
+<input id="c-name" name="name" type="text" autocomplete="name" value="Gus Fune" style="font: inherit; font-size: 16px; min-height: 48px; padding: 0 12px; background: {{c.surface}}; color: {{c.fg}}; border: 1px solid {{c.field}}; border-radius: 2px;">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<label for="c-email" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.04em;">EMAIL</label>
+<input id="c-email" name="email" type="email" autocomplete="email" value="gus@" aria-invalid="true" aria-describedby="c-email-err" style="font: inherit; font-size: 16px; min-height: 48px; padding: 0 12px; background: {{c.surface}}; color: {{c.fg}}; border: 2px solid {{c.error}}; border-radius: 2px;">
+<span id="c-email-err" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.error}};">ERR · Enter an email like name@company.com</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<label for="c-msg" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.04em;">MESSAGE</label>
+<textarea id="c-msg" name="message" rows="5" style="font: inherit; font-size: 16px; line-height: 1.5; padding: 12px; background: {{c.surface}}; color: {{c.fg}}; border: 1px solid {{c.field}}; border-radius: 2px; resize: vertical;">Saw your Léia project. Do you have time for a call on Thursday?</textarea>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}}; text-align: right;">62 / 2000</span>
+</div>
+<button type="submit" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; min-height: 52px; background: {{c.fg}}; color: {{c.bg}}; border: 0; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer;">Send message</button>
+</form>
+
+<section aria-label="Other states" style="display: flex; flex-direction: column; gap: 16px; padding: 32px 0 48px; border-top: 2px solid {{c.fg}};">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};">OTHER STATES</span>
+<button type="button" aria-disabled="true" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; min-height: 52px; background: {{c.rule}}; color: {{c.fg}}; border: 0; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.04em;">Sending…</button>
+<div role="status" style="display: flex; flex-direction: column; gap: 6px; padding: 16px; background: {{c.surface}}; border: 1px solid {{c.success}}; border-radius: 2px;">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.success}};">OK · MESSAGE SENT</span>
+<span style="font-size: 15px; line-height: 1.5;">Thanks, Gus. It's in my inbox and I'll reply within one business day.</span>
+</div>
+<div role="alert" style="display: flex; flex-direction: column; gap: 6px; padding: 16px; background: {{c.surface}}; border: 1px solid {{c.error}}; border-radius: 2px;">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.error}};">ERR-429 · TOO MANY MESSAGES</span>
+<span style="font-size: 15px; line-height: 1.5;">You sent several messages in a short time. Wait a few minutes and try again.</span>
+</div>
+<div role="alert" style="display: flex; flex-direction: column; gap: 6px; padding: 16px; background: {{c.surface}}; border: 1px solid {{c.error}}; border-radius: 2px;">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.error}};">ERR-500 · NOT SENT</span>
+<span style="font-size: 15px; line-height: 1.5;">The message didn't go through. Your text is still in the form; try again.</span>
+</div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false},"$preview":{"width":390,"height":1500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var dark = this.props.dark ?? false;
+    var L = {warn:'#8A5A00',bg:'#F3F5F2',surface:'#FFFFFF',fg:'#0E1A14',muted:'#4A564F',rule:'#D6DCD7',accent:'#00573A',field:'#7F8A83',success:'#00573A',error:'#B42318'};
+    var D = {warn:'#E3B341',bg:'#0F1612',surface:'#161F1A',fg:'#E4E8E3',muted:'#9AA59E',rule:'#26302A',accent:'#4FBF8A',field:'#5F6B64',success:'#4FBF8A',error:'#FF7A6E'};
+    return { c: dark ? D : L };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:4px}
+a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+@keyframes rise{from{transform:translateY(105%);filter:blur(10px)}to{transform:none;filter:blur(0)}}
+@keyframes type{from{width:0}to{width:33ch}}
+@keyframes blink{50%{border-color:transparent}}
+.type{display:inline-block;overflow:hidden;white-space:nowrap;vertical-align:bottom;width:33ch;border-right:2px solid currentColor;animation:type .9s steps(33) .1s both,blink .8s step-end 1.1s 4 both}
+.cell{animation:fadeup .5s cubic-bezier(.2,.7,.2,1) both}.cell:nth-child(1){animation-delay:.6s}.cell:nth-child(2){animation-delay:.68s}.cell:nth-child(3){animation-delay:.76s}.cell:nth-child(4){animation-delay:.84s}
+@keyframes fadeup{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.ln{display:block;overflow:hidden;padding-bottom:0.04em}
+.ln>span{display:block;animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.ln:nth-child(2)>span{animation-delay:.09s}.ln:nth-child(3)>span{animation-delay:.18s}
+.after{animation:fadeup .6s cubic-bezier(.2,.7,.2,1) .45s both}
+.rule-draw{transform-origin:left;animation:draw .9s cubic-bezier(.2,.7,.2,1) .3s both}
+.row .arrow,.row .thumb{transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.row:hover .arrow{transform:translateX(6px)}.row:hover .thumb{transform:scale(1.04)}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="background: {{c.bg}}; color: {{c.fg}}; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; min-height: 100%;">
+<div style="max-width: 1312px; margin: 0 auto; padding: 0 64px; display: flex; flex-direction: column;">
+
+<header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 0; border-bottom: 1px solid {{c.fg}};">
+<div style="display: flex; align-items: baseline; gap: 16px;">
+<a href="#top" style="font-stretch: 70%; font-weight: 700; font-size: 24px; letter-spacing: 0.01em; text-transform: uppercase;">Jhon<span style="color: {{c.accent}};">Silva</span></a>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};">REV 2026.10</span>
+</div>
+<nav aria-label="Main" style="display: flex; gap: 32px; font-family: 'JetBrains Mono', monospace; font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em;">
+<a href="#work">Work</a><a href="#live">Live</a><a href="#contact">Contact</a>
+</nav>
+<div style="display: flex; gap: 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px;">
+<div role="group" aria-label="Language" style="display: flex; border: 1px solid {{c.field}};">
+<button type="button" aria-pressed="true" style="font: inherit; padding: 8px 12px; min-height: 36px; background: {{c.fg}}; color: {{c.bg}}; border: 0; cursor: pointer;">EN</button>
+<button type="button" aria-pressed="false" style="font: inherit; padding: 8px 12px; min-height: 36px; background: transparent; color: {{c.fg}}; border: 0; cursor: pointer;">PT</button>
+</div>
+<div role="group" aria-label="Theme" style="display: flex; border: 1px solid {{c.field}};">
+<button type="button" aria-pressed="{{lightOn}}" style="font: inherit; padding: 8px 12px; min-height: 36px; background: {{tLight.bg}}; color: {{tLight.fg}}; border: 0; cursor: pointer;">LIGHT</button>
+<button type="button" aria-pressed="{{darkOn}}" style="font: inherit; padding: 8px 12px; min-height: 36px; background: {{tDark.bg}}; color: {{tDark.fg}}; border: 0; cursor: pointer;">DARK</button>
+<button type="button" aria-pressed="false" style="font: inherit; padding: 8px 12px; min-height: 36px; background: transparent; color: {{c.fg}}; border: 0; cursor: pointer;">AUTO</button>
+</div>
+</div>
+</header>
+
+<section id="top" style="display: flex; flex-direction: column; gap: 32px; padding: 96px 0 64px;">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: {{c.accent}}; letter-spacing: 0;"><span class="type">FULL-STACK ENGINEER · AI PRODUCTS</span></span>
+<h1 aria-label="I build AI products that run on WhatsApp." style="margin: 0; font-stretch: 62%; font-weight: 700; font-size: 176px; line-height: 0.86; letter-spacing: -0.015em; text-transform: uppercase;">
+<span class="ln" aria-hidden="true"><span>I build AI products</span></span>
+<span class="ln" aria-hidden="true"><span>that run on</span></span>
+<span class="ln" aria-hidden="true"><span style="color: {{c.accent}};">WhatsApp.</span></span>
+</h1>
+<div class="rule-draw" aria-hidden="true" style="height: 2px; background: {{c.fg}};"></div>
+<div class="after" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: end;">
+<p style="margin: 0; font-size: 20px; line-height: 1.5; color: {{c.muted}}; max-width: 560px;">Full-stack engineer working across Next.js, TypeScript, Python and AWS. Developer at Zapichat, CTO at Léia, founder of Nextech.</p>
+<div style="display: flex; gap: 16px; flex-wrap: wrap;">
+<a href="#work" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; padding: 14px 20px; background: {{c.fg}}; color: {{c.bg}}; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.04em;">See the work →</a>
+<a href="#contact" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; padding: 13px 19px; border: 1px solid {{c.fg}}; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.04em;">Get in touch</a>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="spec-h" style="display: flex; flex-direction: column; gap: 16px; padding-bottom: 96px;">
+<h2 id="spec-h" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 12px; letter-spacing: 0.08em; color: {{c.muted}};">GENERAL SPECIFICATIONS</h2>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 2px solid {{c.fg}};">
+<div class="cell" style="display: flex; flex-direction: column; gap: 8px; padding: 16px 16px 16px 0; border-bottom: 1px solid {{c.rule}};"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};">FRONTEND</span><span style="font-size: 16px; line-height: 1.5;">Next.js · React · TypeScript · Tailwind</span></div>
+<div class="cell" style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border-bottom: 1px solid {{c.rule}}; border-left: 1px solid {{c.rule}};"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};">BACKEND</span><span style="font-size: 16px; line-height: 1.5;">Python · Django · Node · Supabase</span></div>
+<div class="cell" style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border-bottom: 1px solid {{c.rule}}; border-left: 1px solid {{c.rule}};"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};">AI</span><span style="font-size: 16px; line-height: 1.5;">LangChain · RAG with pgvector · OpenRouter</span></div>
+<div class="cell" style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border-bottom: 1px solid {{c.rule}}; border-left: 1px solid {{c.rule}};"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};">INFRA</span><span style="font-size: 16px; line-height: 1.5;">AWS EC2 · Vercel · Redis · Celery</span></div>
+</div>
+</section>
+
+<section id="work" aria-labelledby="work-h" style="display: flex; flex-direction: column; gap: 24px; padding-bottom: 96px;">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px;">
+<h2 id="work-h" style="margin: 0; font-stretch: 70%; font-weight: 700; font-size: 32px; text-transform: uppercase;"><span style="font-family: 'JetBrains Mono', monospace; font-weight: 400; font-size: 14px; color: {{c.accent}}; vertical-align: middle; margin-right: 12px;">§1</span>Selected work</h2>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};">3 PARTS</span>
+</div>
+<div style="display: flex; flex-direction: column; border-top: 2px solid {{c.fg}};">
+<div style="display: grid; grid-template-columns: 176px 80px minmax(0, 2fr) minmax(0, 1.2fr) minmax(0, 1.8fr) 150px 24px; gap: 24px; padding: 12px 0; border-bottom: 1px solid {{c.rule}}; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};"><span>FIG.</span><span>PART NO.</span><span>PRODUCT</span><span>ROLE</span><span>STACK</span><span>STATUS</span><span></span></div>
+<sc-for list="{{projects}}" as="p" hint-placeholder-count="3">
+<a href="Project.dc.html" class="row" style="display: grid; grid-template-columns: 176px 80px minmax(0, 2fr) minmax(0, 1.2fr) minmax(0, 1.8fr) 150px 24px; gap: 24px; align-items: center; padding: 20px 0; border-bottom: 1px solid {{c.rule}}; text-decoration: none;">
+<span style="display: block; overflow: hidden; border: 1px solid {{c.rule}};"><span class="thumb" role="img" aria-label="{{p.figAlt}}" style="display: flex; width: 100%; aspect-ratio: 16 / 10; background: {{c.surface}};"><span style="width: 22%; background: {{c.rule}};"></span><span style="flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 10px;"><span style="height: 6px; width: 60%; background: {{c.fg}};"></span><span style="height: 5px; width: 85%; background: {{c.rule}};"></span><span style="height: 5px; width: 70%; background: {{c.rule}};"></span><span style="height: 5px; width: 40%; background: {{c.accent}};"></span><span style="height: 5px; width: 78%; background: {{c.rule}};"></span></span></span></span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: {{c.accent}};">{{p.code}}</span>
+<span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-stretch: 70%; font-weight: 700; font-size: 32px; line-height: 1; text-transform: uppercase;">{{p.name}}</span><span style="font-size: 16px; line-height: 1.5; color: {{c.muted}};">{{p.what}}</span></span>
+<span style="font-size: 16px;">{{p.role}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.6; color: {{c.muted}};">{{p.stack}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; display: flex; align-items: center; gap: 8px;"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: {{p.dot}};"></span>{{p.status}}</span>
+<span class="arrow" aria-hidden="true" style="font-size: 20px;">→</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section id="live" aria-labelledby="live-h" style="display: flex; flex-direction: column; gap: 24px; padding-bottom: 96px;">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+<h2 id="live-h" style="margin: 0; font-stretch: 70%; font-weight: 700; font-size: 32px; text-transform: uppercase;"><span style="font-family: 'JetBrains Mono', monospace; font-weight: 400; font-size: 14px; color: {{c.accent}}; vertical-align: middle; margin-right: 12px;">§2</span>Live readings</h2>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}}; display: flex; align-items: center; gap: 8px;"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: {{c.success}};"></span>READ 14:32:07 UTC−3 · SAMPLE DATA</span>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: {{c.muted}}; max-width: 640px;">Trending models on the Hugging Face Hub, fetched by the server on every request.</p>
+<div style="display: flex; flex-direction: column; border-top: 2px solid {{c.fg}}; font-variant-numeric: tabular-nums;">
+<div style="display: grid; grid-template-columns: 64px minmax(0, 3fr) minmax(0, 2fr) 160px 160px; gap: 24px; padding: 12px 0; border-bottom: 1px solid {{c.rule}}; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};"><span>#</span><span>MODEL</span><span>TASK</span><span style="text-align: right;">LIKES</span><span style="text-align: right;">DOWNLOADS</span></div>
+<sc-for list="{{models}}" as="m" hint-placeholder-count="5">
+<div style="display: grid; grid-template-columns: 64px minmax(0, 3fr) minmax(0, 2fr) 160px 160px; gap: 24px; padding: 14px 0; border-bottom: 1px solid {{c.rule}}; font-family: 'JetBrains Mono', monospace; font-size: 14px;">
+<span style="color: {{c.muted}};">{{m.rank}}</span><span style="overflow-wrap: anywhere;">{{m.id}}</span><span style="color: {{c.muted}};">{{m.task}}</span><span style="text-align: right;">{{m.likes}}</span><span style="text-align: right;">{{m.downloads}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section id="contact" aria-labelledby="contact-h" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; padding: 64px 0 96px; border-top: 2px solid {{c.fg}};">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px;">
+<h2 id="contact-h" style="margin: 0; font-stretch: 70%; font-weight: 700; font-size: 32px; text-transform: uppercase;"><span style="font-family: 'JetBrains Mono', monospace; font-weight: 400; font-size: 14px; color: {{c.accent}}; vertical-align: middle; margin-right: 12px;">§3</span>Contact</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.5;">Building something that needs to talk to people? Send me a message and I reply within one business day.</p>
+</div>
+<a href="ContactMobile.dc.html" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; padding: 14px 20px; background: {{c.accent}}; color: {{c.onAccent}}; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.04em;">Write to me →</a>
+</section>
+
+<footer style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 24px 0 32px; border-top: 1px solid {{c.rule}}; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};">
+<span>© 2026 JHON SILVA · BUILT WITH NEXT.JS</span>
+<span>SOURCE ON GITHUB ↗</span>
+<span>SHEET 1 OF 1</span>
+</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":2700}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { t: 1 }; }
+  componentDidMount() {
+    var reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (reduce) return;
+    var self = this, start = null, dur = 1100;
+    this.setState({ t: 0 });
+    function step(ts) {
+      if (start === null) start = ts;
+      var k = Math.min(1, (ts - start) / dur);
+      self.setState({ t: 1 - Math.pow(1 - k, 3) });
+      if (k < 1) self.raf = requestAnimationFrame(step);
+    }
+    this.raf = requestAnimationFrame(step);
+  }
+  componentWillUnmount() { if (this.raf) cancelAnimationFrame(this.raf); }
+  renderVals() {
+    var dark = this.props.dark ?? false;
+    var L = {warn:'#8A5A00',bg:'#F3F5F2',surface:'#FFFFFF',fg:'#0E1A14',muted:'#4A564F',rule:'#D6DCD7',accent:'#00573A',onAccent:'#FFFFFF',field:'#7F8A83',success:'#00573A',error:'#B42318'};
+    var D = {warn:'#E3B341',bg:'#0F1612',surface:'#161F1A',fg:'#E4E8E3',muted:'#9AA59E',rule:'#26302A',accent:'#4FBF8A',onAccent:'#0F1612',field:'#5F6B64',success:'#4FBF8A',error:'#FF7A6E'};
+    var c = dark ? D : L;
+    var on = {bg:c.fg, fg:c.bg}, off = {bg:'transparent', fg:c.fg};
+    var t = this.state.t;
+    var fmt = function (n) { return Math.round(n * t).toLocaleString('en-US'); };
+    var raw = [
+      ['01','example-org/chat-model-8b','text-generation',1204,312880],
+      ['02','example-org/vision-model-2b','image-text-to-text',986,140215],
+      ['03','example-org/speech-model-v3','automatic-speech-recognition',742,98030],
+      ['04','example-org/embed-model-small','feature-extraction',511,1022447],
+      ['05','example-org/image-model-xl','text-to-image',480,61902]
+    ];
+    return {
+      c: c,
+      lightOn: dark ? 'false' : 'true', darkOn: dark ? 'true' : 'false',
+      tLight: dark ? off : on, tDark: dark ? on : off,
+      projects: [
+        {code:'PRJ-01', name:'Zapichat', what:'Multi-tenant CRM and customer service on WhatsApp', role:'Full-stack developer', stack:'React · TypeScript · Supabase · Meta Cloud API', status:'IN PRODUCTION', dot:c.success, figAlt:'Screenshot placeholder: Zapichat inbox'},
+        {code:'PRJ-02', name:'Léia', what:'AI assistant that answers condominium residents', role:'CTO', stack:'Django · LangChain · pgvector · AWS EC2', status:'EARLY CUSTOMERS', dot:c.warn, figAlt:'Screenshot placeholder: Léia manager inbox'},
+        {code:'PRJ-03', name:'Nextech', what:'AI assistants for clinics: booking and follow-up', role:'Founder and developer', stack:'Next.js · Supabase · OpenRouter · Resend', status:'IN TESTING', dot:c.muted, figAlt:'Screenshot placeholder: Nextech clinic dashboard'}
+      ],
+      models: raw.map(function (r) { return { rank:r[0], id:r[1], task:r[2], likes:fmt(r[3]), downloads:fmt(r[4]) }; })
+    };
+  }
+}
+</script>
+</body>
+</html>

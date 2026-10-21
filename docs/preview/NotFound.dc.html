@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Not found</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:4px}
+a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 760px; box-sizing: border-box; background: {{c.bg}}; color: {{c.fg}}; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; padding: 0 16px; display: flex; flex-direction: column;">
+<header style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid {{c.fg}};">
+<a href="Main.dc.html" style="font-stretch: 70%; font-weight: 700; font-size: 20px; text-transform: uppercase;">Jhon<span style="color: {{c.accent}};">Silva</span></a>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.muted}};">REV 2026.10</span>
+</header>
+<main style="display: flex; flex-direction: column; gap: 24px; padding: 64px 0;">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.accent}};">ERR-404</span>
+<h1 style="margin: 0; font-stretch: 66%; font-weight: 700; font-size: 72px; line-height: 0.9; text-transform: uppercase;">Part not found</h1>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: {{c.muted}};">This page isn't in the catalog. It may have moved, or the link has a typo.</p>
+<dl style="margin: 0; display: grid; grid-template-columns: 96px minmax(0, 1fr); border-top: 2px solid {{c.fg}}; font-family: 'JetBrains Mono', monospace; font-size: 12px;">
+<dt style="color: {{c.muted}}; padding: 12px 0; border-bottom: 1px solid {{c.rule}};">REQUESTED</dt><dd style="margin: 0; padding: 12px 0; border-bottom: 1px solid {{c.rule}}; overflow-wrap: anywhere;">/work/prj-04</dd>
+<dt style="color: {{c.muted}}; padding: 12px 0; border-bottom: 1px solid {{c.rule}};">AVAILABLE</dt><dd style="margin: 0; padding: 12px 0; border-bottom: 1px solid {{c.rule}};">PRJ-01 · PRJ-02 · PRJ-03</dd>
+</dl>
+<a href="Main.dc.html" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; padding: 15px 20px; background: {{c.fg}}; color: {{c.bg}}; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.04em; text-align: center;">← Back to the catalog</a>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":true},"$preview":{"width":390,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var dark = this.props.dark ?? true;
+    var L = {warn:'#8A5A00',bg:'#F3F5F2',fg:'#0E1A14',muted:'#4A564F',rule:'#D6DCD7',accent:'#00573A'};
+    var D = {warn:'#E3B341',bg:'#0F1612',fg:'#E4E8E3',muted:'#9AA59E',rule:'#26302A',accent:'#4FBF8A'};
+    return { c: dark ? D : L };
+  }
+}
+</script>
+</body>
+</html>
