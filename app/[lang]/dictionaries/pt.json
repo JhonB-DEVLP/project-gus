@@ -22,5 +22,75 @@
     "built": "Feito com Next.js",
     "source": "Código no GitHub",
     "sheet": "Folha 1 de 1"
+  },
+  "hero": {
+    "eyebrow": "Engenheiro full stack · Produtos com IA",
+    "title": ["Eu desenvolvo", "qualquer solução", "para qualquer", "problema."],
+    "lead": "Engenheiro full stack com Next.js, TypeScript, Python e AWS. Desenvolvedor no Zapichat, CTO da Léia e fundador da Nextech.",
+    "ctaWork": "Ver os trabalhos",
+    "ctaContact": "Falar comigo"
+  },
+  "specs": {
+    "title": "Especificações gerais",
+    "frontendLabel": "Frontend",
+    "frontend": "Next.js · React · TypeScript · Tailwind",
+    "backendLabel": "Backend",
+    "backend": "Python · Django · Node · Supabase",
+    "aiLabel": "IA",
+    "ai": "LangChain · RAG com pgvector · OpenRouter",
+    "infraLabel": "Infra",
+    "infra": "AWS EC2 · Vercel · Redis · Celery"
+  },
+  "work": {
+    "title": "Trabalhos selecionados",
+    "count": "3 peças",
+    "cols": {
+      "fig": "Fig.",
+      "part": "Código",
+      "product": "Produto",
+      "role": "Papel",
+      "stack": "Stack",
+      "status": "Status"
+    }
+  },
+  "status": {
+    "production": "Em produção",
+    "early": "Primeiros clientes",
+    "testing": "Em testes"
+  },
+  "live": {
+    "title": "Leituras ao vivo",
+    "lead": "Modelos em alta no Hugging Face Hub, buscados pelo servidor a cada acesso."
+  },
+  "contactBand": {
+    "title": "Contato",
+    "text": "Está construindo algo que precisa conversar com pessoas? Me mande uma mensagem.",
+    "cta": "Escrever"
+  },
+  "project": {
+    "breadcrumb": "Trilha de navegação",
+    "screenshots": "Capturas de tela",
+    "problem": "O problema",
+    "decisions": "Decisões",
+    "pager": "Projetos",
+    "previous": "Projeto anterior",
+    "next": "Próximo projeto",
+    "spec": {
+      "role": "Papel",
+      "status": "Status",
+      "period": "Período",
+      "channel": "Canal",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "ai": "IA",
+      "infra": "Infra",
+      "stack": "Stack",
+      "integrations": "Integrações",
+      "link": "Link"
+    }
+  },
+  "figure": {
+    "label": "Fig.",
+    "placeholder": "provisório"
   }
 }

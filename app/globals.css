@@ -24,9 +24,12 @@
   --dur-base: 250ms;
   --dur-hero: 800ms;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --stagger: 90ms;
 
-  /* Display width: Archivo's wdth axis */
+  /* Display width: Archivo's wdth axis. Compressed is for the giant titles. */
   --stretch-condensed: 70%;
+  --stretch-compressed: 62%;
+  --tracking-display: -0.015em;
 }
 
 /* Color, dark: follows the OS unless the user picked light */
@@ -81,9 +84,13 @@
   /*
    * Five sizes plus the display, nothing else.
    * Fluid sizes scale linearly from 390px to 1280px viewports.
+   * Display instead tracks the usable width (viewport minus both 64px
+   * gutters) so the longest hero line in either language ("qualquer
+   * solução", 7.04em wide) stays on one line: the divisor is that width
+   * plus room for a classic scrollbar.
    */
   --text-*: initial;
-  --text-display: clamp(4rem, 0.9326rem + 12.584vw, 11rem);
+  --text-display: clamp(4rem, calc((100vw - 8rem) / 7.2), 11rem);
   --text-display--line-height: 0.86;
   --text-display--font-weight: 700;
   --text-title: clamp(1.75rem, 1.6404rem + 0.4494vw, 2rem);
@@ -103,7 +110,8 @@
    * (1, 2, 3, 4, 6, 8, 12, 16, 24 = 4…96px). Section padding: py-14 / py-24.
    * Side gutter: px-4 / px-16.
    */
-  --container-page: 1312px;
+  /* 1312px of content plus the two 64px gutters (the Container is border-box). */
+  --container-page: 1440px;
 
   /* Blocks are square (rounded-none); controls get 2px. */
   --radius-control: 2px;
@@ -145,6 +153,124 @@
 
 @utility font-condensed {
   font-stretch: var(--stretch-condensed);
+}
+
+@utility font-compressed {
+  font-stretch: var(--stretch-compressed);
+  letter-spacing: var(--tracking-display);
+}
+
+/* Work list row on wide screens: fig, part no., product, role, stack, status, arrow. */
+@utility grid-work {
+  grid-template-columns:
+    176px 80px minmax(0, 2fr) minmax(0, 1.2fr) minmax(0, 1.8fr)
+    150px 24px;
+}
+
+/*
+ * Hero entrance (docs/design.md, Motion #1). CSS only.
+ * Each class's base style is the finished state; the keyframes only
+ * describe where it comes from, so reduced motion shows the final page.
+ * `--i` (set per element) is the position in a staggered sequence.
+ */
+@keyframes hero-type {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes hero-blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    transform: translateY(105%);
+    filter: blur(10px);
+  }
+}
+
+@keyframes title-rise {
+  from {
+    transform: translateY(105%);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* The eyebrow types itself in. `--chars` is the string length. */
+.hero-type {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  /* content-box: the 2px caret sits outside the text, not over the last letter. */
+  box-sizing: content-box;
+  width: calc(var(--chars) * 1ch);
+  border-right: 2px solid currentColor;
+  animation:
+    hero-type var(--dur-hero) steps(var(--chars)) 100ms both,
+    hero-blink var(--dur-hero) step-end 1100ms 4;
+}
+
+/* An h1 line: the mask stays put, the text inside rises and sharpens.
+   Only transform and filter move, never opacity (the h1 is the LCP).
+   The mask reaches above the tight line box so accents (É) aren't clipped;
+   the negative margin keeps the line spacing unchanged. */
+.hero-line,
+.title-line {
+  display: block;
+  overflow: hidden;
+  padding-top: 0.15em;
+  margin-top: -0.15em;
+  padding-bottom: 0.04em;
+}
+
+.hero-line > span {
+  display: block;
+  animation: hero-rise var(--dur-hero) var(--ease) both;
+  animation-delay: calc(var(--i, 0) * var(--stagger));
+}
+
+.hero-rule {
+  transform-origin: left;
+  animation: draw var(--dur-hero) var(--ease) 300ms both;
+}
+
+.hero-after {
+  animation: fade-up calc(var(--dur-base) * 2) var(--ease) 450ms both;
+}
+
+.hero-cell {
+  animation: fade-up calc(var(--dur-base) * 2) var(--ease) both;
+  animation-delay: calc(600ms + var(--i, 0) * 80ms);
+}
+
+/* Project page: the title rises without the blur, then summary and figures. */
+.title-line > span {
+  display: block;
+  animation: title-rise var(--dur-hero) var(--ease) both;
+}
+
+.title-after {
+  animation: fade-up calc(var(--dur-base) * 2) var(--ease) 350ms both;
+}
+
+.title-figures {
+  animation: fade-up var(--dur-hero) var(--ease) 500ms both;
 }
 
 @utility duration-fast {

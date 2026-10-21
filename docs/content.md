@@ -25,7 +25,7 @@ All copy for the site. The agent moves it into `app/[lang]/dictionaries/{en,pt}.
 | Key | EN | PT |
 |---|---|---|
 | hero.eyebrow | Full-stack engineer · AI products | Engenheiro full stack · Produtos com IA |
-| hero.title (3 lines) | I build AI products / that run on / WhatsApp. | Eu construo produtos / de IA que rodam / no WhatsApp. |
+| hero.title (lines) | I build / any solution / for any problem. | Eu desenvolvo / qualquer solução / para qualquer / problema. |
 | hero.lead | Full-stack engineer working across Next.js, TypeScript, Python and AWS. Developer at Zapichat, CTO at Léia, founder of Nextech. | Engenheiro full stack com Next.js, TypeScript, Python e AWS. Desenvolvedor no Zapichat, CTO da Léia e fundador da Nextech. |
 | hero.ctaWork | See the work | Ver os trabalhos |
 | hero.ctaContact | Get in touch | Falar comigo |
@@ -51,7 +51,7 @@ All copy for the site. The agent moves it into `app/[lang]/dictionaries/{en,pt}.
 | contactBand.text | Building something that needs to talk to people? Send me a message. | Está construindo algo que precisa conversar com pessoas? Me mande uma mensagem. |
 | contactBand.cta | Write to me | Escrever |
 
-**[confirm]** If Jhon commits to a reply time, add "I reply within one business day." / "Respondo em até 1 dia útil." Only if true.
+No reply time is promised (decided Oct 21: leave it out).
 
 ## Contact page
 
@@ -92,7 +92,7 @@ All copy for the site. The agent moves it into `app/[lang]/dictionaries/{en,pt}.
 - **Summary** — EN: Multi-tenant CRM and customer service on WhatsApp. PT: CRM e atendimento multi-tenant pelo WhatsApp.
 - **Role**: Full-stack developer / Desenvolvedor full stack
 - **Status**: In production / Em produção
-- **Period**: **[confirm]** start year
+- **Period**: 2026 – present / 2026 – hoje
 - **Channel**: WhatsApp Cloud API (Meta)
 - **Frontend**: React · TypeScript · Vite · Tailwind
 - **Backend**: Supabase (Postgres, Auth, Realtime, Storage, Edge Functions in Deno) · worker for queued sends
@@ -105,18 +105,17 @@ All copy for the site. The agent moves it into `app/[lang]/dictionaries/{en,pt}.
   - Bulk campaigns with scheduling / Disparos em massa com agendamento
   - Automations, NPS surveys and analytics / Automações, pesquisas de NPS e análises
   - Many companies on one platform, each isolated / Várias empresas numa plataforma, cada uma isolada
-- **3 · Decisions** — **[confirm] Jhon to choose 2–3 he can explain in depth.** Candidates from the codebase:
-  - Server logic in Supabase Edge Functions, close to the data / Lógica de servidor em Edge Functions do Supabase, perto dos dados
-  - Campaign sends go through a queue and a separate worker, so the app never blocks / Os disparos passam por uma fila e um worker separado, e o app nunca trava
-  - Row Level Security keeps each company's data apart / Row Level Security mantém os dados de cada empresa separados
+- **3 · Decisions**
+  - D-01 Sends go through a queue / Disparos passam por uma fila — EN: Bulk campaigns are queued and a separate worker sends them, so the app never blocks while thousands of messages go out. PT: Campanhas em massa entram numa fila e um worker separado faz os envios, então o app não trava enquanto milhares de mensagens saem.
+  - D-02 One platform, isolated companies / Uma plataforma, empresas isoladas — EN: Postgres Row Level Security keeps each company's data apart, enforced by the database, not by app code. PT: O Row Level Security do Postgres separa os dados de cada empresa, e quem garante isso é o banco, não o código do app.
 - **Figures**: FIG. 1 inbox, FIG. 2 CRM pipeline — **placeholder until demo screenshots exist**
 
 ### PRJ-02 · Léia (`/work/leia`)
 
-- **Summary** — EN: An AI assistant on WhatsApp that answers condominium residents and passes to the manager what needs a person. PT: Uma assistente de IA no WhatsApp que responde os moradores do condomínio e passa para o síndico o que precisa de uma pessoa.
+- **Summary** — EN: An AI assistant on WhatsApp that answers condominium residents and passes to the manager what needs a person. PT: Uma assistente de IA no WhatsApp que responde aos moradores do condomínio e passa para o síndico o que precisa de uma pessoa.
 - **Role**: CTO
 - **Status**: Early customers / Primeiros clientes
-- **Period**: 2025 – present / 2025 – hoje **[confirm]**
+- **Period**: 2026 – present / 2026 – hoje
 - **Channel**: WhatsApp Cloud API (Meta), in coexistence with the phone app / em coexistência com o app do celular
 - **Backend**: Django 6 · DRF · PostgreSQL + pgvector · Redis · Celery · Channels
 - **AI**: LangChain · LangGraph · OpenRouter · OpenAI embeddings

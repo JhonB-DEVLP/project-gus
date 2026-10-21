@@ -3,7 +3,10 @@ import en from "@/app/[lang]/dictionaries/en.json";
 import pt from "@/app/[lang]/dictionaries/pt.json";
 
 // Flattens { nav: { work: "Work" } } into [["nav.work", "Work"]].
+// An array (like the hero lines) is one key: each language may break the
+// text into a different number of lines, but every item is still checked.
 function entries(value: unknown, prefix = ""): [string, unknown][] {
+  if (Array.isArray(value)) return value.map((item): [string, unknown] => [prefix, item]);
   if (value === null || typeof value !== "object") return [[prefix, value]];
   return Object.entries(value).flatMap(([key, child]) =>
     entries(child, prefix ? `${prefix}.${key}` : key),
@@ -15,7 +18,7 @@ describe("dictionaries", () => {
   const ptEntries = entries(pt);
 
   it("have the same keys in both languages", () => {
-    const keys = (list: [string, unknown][]) => list.map(([key]) => key).sort();
+    const keys = (list: [string, unknown][]) => [...new Set(list.map(([key]) => key))].sort();
     expect(keys(ptEntries)).toEqual(keys(enEntries));
   });
 

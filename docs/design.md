@@ -85,7 +85,7 @@ Five sizes plus the display. Nothing else.
 | `--ease` | `cubic-bezier(0.2, 0.7, 0.2, 1)` | Everything |
 
 Moments (all off under `prefers-reduced-motion: reduce`):
-1. **Hero** (the one big moment): the mono eyebrow types itself in (`steps()` on width in `ch`, caret blinks 4 times). Each line of the `h1` rises from behind a mask and sharpens from a 10px blur (`overflow: hidden` line, inner span `translateY(105%) → 0`, `filter: blur(10px) → 0`), staggered 90ms. The last line ("WhatsApp.") is in the accent. A 2px rule draws left to right, then the intro, buttons and the four spec cells fade up in sequence. CSS only. The `h1` never starts at `opacity: 0` (it's the LCP element), and every animated element has its final state as the base style, so reduced motion shows the finished page.
+1. **Hero** (the one big moment): the mono eyebrow types itself in (`steps()` on width in `ch`, caret blinks 4 times). Each line of the `h1` rises from behind a mask and sharpens from a 10px blur (`overflow: hidden` line, inner span `translateY(105%) → 0`, `filter: blur(10px) → 0`), staggered 90ms. The last line is in the accent. A 2px rule draws left to right, then the intro, buttons and the four spec cells fade up in sequence. CSS only. The `h1` never starts at `opacity: 0` (it's the LCP element), and every animated element has its final state as the base style, so reduced motion shows the finished page.
 2. **Work list hover**: thumbnail scales to 1.04, arrow moves 6px right.
 3. **Live numbers**: likes and downloads count up from 0 in ~1.1s (`CountUp`).
 4. **List → project**: React `<ViewTransition>` morphs the project name into the detail title. Optional; only if time allows (see PLAN).

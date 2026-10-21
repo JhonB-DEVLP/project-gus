@@ -22,5 +22,75 @@
     "built": "Built with Next.js",
     "source": "Source on GitHub",
     "sheet": "Sheet 1 of 1"
+  },
+  "hero": {
+    "eyebrow": "Full-stack engineer · AI products",
+    "title": ["I build", "any solution", "for any problem."],
+    "lead": "Full-stack engineer working across Next.js, TypeScript, Python and AWS. Developer at Zapichat, CTO at Léia, founder of Nextech.",
+    "ctaWork": "See the work",
+    "ctaContact": "Get in touch"
+  },
+  "specs": {
+    "title": "General specifications",
+    "frontendLabel": "Frontend",
+    "frontend": "Next.js · React · TypeScript · Tailwind",
+    "backendLabel": "Backend",
+    "backend": "Python · Django · Node · Supabase",
+    "aiLabel": "AI",
+    "ai": "LangChain · RAG with pgvector · OpenRouter",
+    "infraLabel": "Infra",
+    "infra": "AWS EC2 · Vercel · Redis · Celery"
+  },
+  "work": {
+    "title": "Selected work",
+    "count": "3 parts",
+    "cols": {
+      "fig": "Fig.",
+      "part": "Part no.",
+      "product": "Product",
+      "role": "Role",
+      "stack": "Stack",
+      "status": "Status"
+    }
+  },
+  "status": {
+    "production": "In production",
+    "early": "Early customers",
+    "testing": "In testing"
+  },
+  "live": {
+    "title": "Live readings",
+    "lead": "Trending models on the Hugging Face Hub, fetched by the server on every request."
+  },
+  "contactBand": {
+    "title": "Contact",
+    "text": "Building something that needs to talk to people? Send me a message.",
+    "cta": "Write to me"
+  },
+  "project": {
+    "breadcrumb": "Breadcrumb",
+    "screenshots": "Screenshots",
+    "problem": "The problem",
+    "decisions": "Decisions",
+    "pager": "Projects",
+    "previous": "Previous project",
+    "next": "Next project",
+    "spec": {
+      "role": "Role",
+      "status": "Status",
+      "period": "Period",
+      "channel": "Channel",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "ai": "AI",
+      "infra": "Infra",
+      "stack": "Stack",
+      "integrations": "Integrations",
+      "link": "Link"
+    }
+  },
+  "figure": {
+    "label": "Fig.",
+    "placeholder": "placeholder"
   }
 }
