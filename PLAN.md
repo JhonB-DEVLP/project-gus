@@ -10,7 +10,7 @@ Time box: 6 h of active work, hard limit 8 h. The total below counts everything,
 | M2 | Home + work: hero with motion, specs, work list, 3 project pages with figures | 1 h | 45 min | |
 | M3 | Live data: Hugging Face fetch, Suspense, loading / error / empty states, count-up | 30 min | 20 min | |
 | M4 | Contact: schema, Server Action, typed errors, honeypot, rate limit, Redis store + Resend, form states, unit tests | 55 min | 20 min | |
-| M5 | SEO + a11y: metadata, canonical, hreflang, OG images, sitemap, robots, JSON-LD, 404, E2E keyboard test, axe | 40 min | | |
+| M5 | SEO + a11y: metadata, canonical, hreflang, OG images, sitemap, robots, JSON-LD, 404, E2E keyboard test, axe | 40 min | 30 min | |
 | M6 | Ship: deploy to Vercel, Lighthouse pass, screenshots, README, DESIGN.md, AI_LOG.md | 45 min | | |
 | | **Build** | **5 h 00** | | |
 | | **Total with planning** | **6 h 30** | | Over the 6 h target, under the 8 h limit. The build estimates are shorter because the spec and prompts were written first. |

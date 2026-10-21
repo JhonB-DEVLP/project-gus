@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
@@ -7,6 +8,7 @@ import { PageShell } from "@/components/page-shell";
 import { StatusMark } from "@/components/status-mark";
 import { getAdjacent, getProject, projects } from "@/content/projects";
 import { hasLocale } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/site";
 import { getDictionary } from "../../dictionaries";
 
 // Only the three projects exist; any other slug is a 404.
@@ -15,6 +17,20 @@ export const dynamicParams = false;
 // Runs once per locale from the [lang] layout: 3 slugs × 2 languages.
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps<"/[lang]/work/[slug]">): Promise<Metadata> {
+  const { lang, slug } = await params;
+  const project = getProject(slug);
+  if (!hasLocale(lang) || !project) return {};
+  const dict = await getDictionary(lang);
+  return pageMetadata({
+    lang,
+    path: `/work/${project.slug}`,
+    title: `${project.name} · ${project.code}`,
+    description: project.copy[lang].summary,
+    siteName: dict.name,
+  });
 }
 
 const sectionHeading = "font-mono text-label font-medium text-accent uppercase lg:w-50 lg:shrink-0";

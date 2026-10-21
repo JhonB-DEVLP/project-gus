@@ -74,6 +74,15 @@ No reply time is promised (decided Oct 21: leave it out).
 | err.rateLimited | You sent several messages in a short time. Try again in {minutes} min. | Você enviou várias mensagens em pouco tempo. Tente de novo em {minutes} min. |
 | err.server | The message didn't go through. Your text is still in the form; try again. | A mensagem não foi enviada. Seu texto continua no formulário; tente de novo. |
 
+## Metadata
+
+Titles and descriptions reuse the copy above: home = `name · hero.eyebrow` + `hero.lead`, project = `name · code` + summary, contact = `contact.title` + the key below.
+
+| Key | EN | PT |
+|---|---|---|
+| meta.jobTitle | Full-stack engineer | Engenheiro full stack |
+| meta.contactDescription | Send Jhon Silva a message about a project or a role. | Envie uma mensagem para Jhon Silva sobre um projeto ou uma vaga. |
+
 ## 404
 
 | Key | EN | PT |

@@ -1,10 +1,25 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ContactForm } from "@/components/contact-form";
 import { Container } from "@/components/container";
 import { PageShell } from "@/components/page-shell";
 import { hasLocale } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/site";
 import { getDictionary } from "../dictionaries";
 import { sendMessage } from "./actions";
+
+export async function generateMetadata({ params }: PageProps<"/[lang]/contact">): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang);
+  return pageMetadata({
+    lang,
+    path: "/contact",
+    title: dict.contact.title,
+    description: dict.meta.contactDescription,
+    siteName: dict.name,
+  });
+}
 
 export default async function ContactPage({ params }: PageProps<"/[lang]/contact">) {
   const { lang } = await params;

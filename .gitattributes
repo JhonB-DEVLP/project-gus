@@ -1,1 +1,4 @@
 * text=auto eol=lf
+
+# Fonts for the share images are binary
+*.ttf binary

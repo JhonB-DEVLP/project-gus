@@ -140,5 +140,17 @@
   "figure": {
     "label": "Fig.",
     "placeholder": "placeholder"
+  },
+  "meta": {
+    "jobTitle": "Full-stack engineer",
+    "contactDescription": "Send Jhon Silva a message about a project or a role."
+  },
+  "nf": {
+    "code": "ERR-404",
+    "title": "Part not found",
+    "text": "This page isn't in the catalog. It may have moved, or the link has a typo.",
+    "requested": "Requested",
+    "available": "Available",
+    "back": "Back to the catalog"
   }
 }

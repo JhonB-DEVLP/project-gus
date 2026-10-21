@@ -7,8 +7,8 @@ export default defineConfig({
   },
   test: {
     environment: "node",
-    // `*.spec.ts` is left for Playwright (M5).
+    // `*.spec.ts` (e2e/) is Playwright.
     include: ["**/*.test.ts", "**/*.test.tsx"],
-    exclude: ["node_modules/**", ".next/**"],
+    exclude: ["node_modules/**", ".next/**", "e2e/**"],
   },
 });

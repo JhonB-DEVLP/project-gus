@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -9,7 +10,22 @@ import { SectionHeading } from "@/components/section-heading";
 import { WorkList } from "@/components/work-list";
 import { projects } from "@/content/projects";
 import { hasLocale } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/site";
 import { getDictionary } from "./dictionaries";
+
+export async function generateMetadata({ params }: PageProps<"/[lang]">): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang);
+  return pageMetadata({
+    lang,
+    path: "",
+    title: `${dict.name} · ${dict.hero.eyebrow}`,
+    description: dict.hero.lead,
+    siteName: dict.name,
+    absolute: true,
+  });
+}
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;

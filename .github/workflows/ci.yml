@@ -29,4 +29,14 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
-      # E2E (Playwright + axe) against the built app comes in M5.
+
+      # E2E (keyboard-only contact form) and axe, against the built app.
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7

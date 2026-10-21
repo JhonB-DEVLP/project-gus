@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
+import { colors, type ColorToken } from "@/lib/tokens";
 
 const css = readFileSync(new URL("../app/globals.css", import.meta.url), "utf8");
 
@@ -55,5 +56,14 @@ describe("design tokens in app/globals.css", () => {
 
   it.each(MOTION_TOKENS)("defines motion token %s", (token) => {
     expect(light.has(token)).toBe(true);
+  });
+
+  // lib/tokens.ts feeds ImageResponse, which can't read CSS variables.
+  it("mirrors every color in lib/tokens.ts", () => {
+    for (const token of COLOR_TOKENS) {
+      const name = token.slice(2) as ColorToken;
+      expect(colors.light[name]).toBe(light.get(token));
+      expect(colors.dark[name]).toBe(darkBySystem.get(token));
+    }
   });
 });

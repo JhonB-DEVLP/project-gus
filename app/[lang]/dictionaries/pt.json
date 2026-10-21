@@ -140,5 +140,17 @@
   "figure": {
     "label": "Fig.",
     "placeholder": "provisório"
+  },
+  "meta": {
+    "jobTitle": "Engenheiro full stack",
+    "contactDescription": "Envie uma mensagem para Jhon Silva sobre um projeto ou uma vaga."
+  },
+  "nf": {
+    "code": "ERR-404",
+    "title": "Peça não encontrada",
+    "text": "Esta página não está no catálogo. Ela pode ter mudado de lugar, ou o link tem um erro de digitação.",
+    "requested": "Pedido",
+    "available": "Disponíveis",
+    "back": "Voltar ao catálogo"
   }
 }
