@@ -15,7 +15,7 @@ Read only what the current task needs. Don't load all of `docs/` for a one-file 
 ## Rules
 
 1. **No `any`.** Not in code, not in tests. Use `unknown` and narrow, or infer from Zod.
-2. **Server Components by default.** Add `"use client"` only for the three components listed in `docs/spec.md` §3. A new client boundary needs my approval and a line in the README.
+2. **Server Components by default.** Add `"use client"` only for the components listed in `docs/spec.md` §3. A new client boundary needs my approval and a line in the README.
 3. **Tokens only.** Colors, sizes, spacing, radius and durations come from `app/globals.css`. No raw hex, no arbitrary Tailwind values (`text-[37px]`) in components.
 4. **Copy comes from the dictionaries.** No hardcoded user-facing strings in components. `pt.json` must have every key in `en.json` (the type enforces it).
 5. **Next.js 16 changed APIs.** `middleware` is now `proxy`; `params` is a Promise. When unsure, read `node_modules/next/dist/docs/` before writing code. Don't rely on memory of older versions.

@@ -44,6 +44,7 @@ Pages are Server Components. A Client Component exists only where state or brows
 | `ThemeToggle` | Reads and writes `localStorage`, sets `data-theme` on `<html>` |
 | `ContactForm` | `useActionState` for pending, field errors and success without a reload |
 | `CountUp` | Animates numbers with `requestAnimationFrame`; skipped when `prefers-reduced-motion` |
+| `RequestedPath` | `usePathname` for the path on the 404. Added in M6: reading a request header in `not-found.tsx` made every page under `[lang]` dynamic |
 
 Not client, on purpose:
 - Language switch: plain `<Link>`s to the other locale.
@@ -136,7 +137,7 @@ Field messages are dictionary keys, so they translate.
 - Lighthouse mobile ≥ 90 in all four categories; LCP < 2.5 s, CLS < 0.1, INP < 200 ms.
 - The hero `h1` is the LCP element. Its text is in the HTML; the animation only moves it with `transform` inside an `overflow: hidden` line. No `opacity: 0` start state on the `h1`.
 - Images: `next/image` with explicit `sizes`; only the first project figure on a detail page gets `priority`.
-- Client JS: only the three Client Components above. No animation library.
+- Client JS: only the Client Components in §3. No animation library.
 
 ## 11. Tests
 
