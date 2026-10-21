@@ -19,14 +19,12 @@ Optional if time is left: view transition from the work list to the project page
 
 ## Not finished
 
-- **Real project screenshots.** Every project figure is still a drawn placeholder (named in the caption, alt text and README). `next/image` is wired in `components/figure.tsx` but has nothing to render yet.
 - **The 404 is blank without JavaScript.** It returns status 404 in the right language, but Next serves its error shell (`<html id="__next_error__">`), so the content only appears after hydration. This was already the case before the M6 fix.
 - **Field INP is not measured.** Lighthouse reports TBT as the lab stand-in; a new site has no CrUX data.
 
 ## With one more day
 
 - `cacheComponents` + Partial Prerendering on the home, so the static shell is served from the CDN and only the live table renders per request.
-- Real screenshots from demo accounts, through `next/image`.
 - Vercel Speed Insights for real INP.
 - Lighthouse in CI, with the ≥ 90 budget as a failing check.
 - A Claude Code hook that runs the typecheck after each edit.

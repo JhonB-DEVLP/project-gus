@@ -96,9 +96,12 @@ Titles and descriptions reuse the copy above: home = `name · hero.eyebrow` + `h
 
 ## Projects
 
+Every project page has a **Pitch** paragraph under the summary (body, muted) and a button to the product's site — EN: Visit site ↗ PT: Ver site ↗ (new tab; screen readers also hear "opens in a new tab" / "abre em nova aba").
+
 ### PRJ-01 · Zapichat (`/work/zapichat`)
 
 - **Summary** — EN: Multi-tenant CRM and customer service on WhatsApp. PT: CRM e atendimento multi-tenant pelo WhatsApp.
+- **Pitch** — EN: Smart customer-service automation. Zapichat brings a company's whole WhatsApp into one shared inbox on Meta's official API, with a CRM pipeline, scheduled bulk campaigns, automations and NPS surveys. Every company is isolated on the same platform, and managers see the whole pipeline instead of conversations scattered across phones. PT: Automação inteligente de atendimento. O Zapichat reúne o WhatsApp da empresa inteira numa caixa de entrada só, pela API oficial da Meta, com funil de CRM, disparos em massa agendados, automações e pesquisas de NPS. Cada empresa fica isolada na mesma plataforma, e o gestor enxerga o funil inteiro em vez de conversas espalhadas pelos celulares.
 - **Role**: Full-stack developer / Desenvolvedor full stack
 - **Status**: In production / Em produção
 - **Period**: 2026 – present / 2026 – hoje
@@ -117,11 +120,12 @@ Titles and descriptions reuse the copy above: home = `name · hero.eyebrow` + `h
 - **3 · Decisions**
   - D-01 Sends go through a queue / Disparos passam por uma fila — EN: Bulk campaigns are queued and a separate worker sends them, so the app never blocks while thousands of messages go out. PT: Campanhas em massa entram numa fila e um worker separado faz os envios, então o app não trava enquanto milhares de mensagens saem.
   - D-02 One platform, isolated companies / Uma plataforma, empresas isoladas — EN: Postgres Row Level Security keeps each company's data apart, enforced by the database, not by app code. PT: O Row Level Security do Postgres separa os dados de cada empresa, e quem garante isso é o banco, não o código do app.
-- **Figures**: FIG. 1 inbox, FIG. 2 CRM pipeline — **placeholder until demo screenshots exist**
+- **Figures** (`content/images/zapichat-*.png`): FIG. 1 landing page with the shared inbox and quick replies, FIG. 2 sign-in page, FIG. 3 company dashboard (real account)
 
 ### PRJ-02 · Léia (`/work/leia`)
 
 - **Summary** — EN: An AI assistant on WhatsApp that answers condominium residents and passes to the manager what needs a person. PT: Uma assistente de IA no WhatsApp que responde aos moradores do condomínio e passa para o síndico o que precisa de uma pessoa.
+- **Pitch** — EN: The manager sleeps; Léia answers. She talks to residents on the WhatsApp number the building already uses, at any hour, and handles everyday questions on her own (opening hours, rules, bills, bookings) from the condominium's own documents. When something is urgent or sensitive, she calls the person in charge. When a rule changes, the answer changes with it. PT: O síndico dorme, a Léia responde. Ela atende os moradores no número de WhatsApp que o prédio já usa, a qualquer hora, e resolve sozinha as dúvidas do dia a dia, como horários, regras, boletos e reservas, com base nos documentos do próprio condomínio. Quando o assunto é urgente ou sensível, ela chama o responsável. Se a regra muda, a resposta muda junto.
 - **Role**: CTO
 - **Status**: Early customers / Primeiros clientes
 - **Period**: 2026 – present / 2026 – hoje
@@ -142,11 +146,12 @@ Titles and descriptions reuse the copy above: home = `name · hero.eyebrow` + `h
   - D-01 Official API, same number / API oficial, mesmo número — EN: Coexistence lets the manager keep the phone app. When the manager replies from the phone, Léia steps back from that conversation. PT: A coexistência deixa o síndico manter o app no celular. Quando ele responde pelo celular, a Léia sai daquela conversa.
   - D-02 Chunk by section, not by size / Fatiar por seção, não por tamanho — EN: Bylaws are split along their own sections, so an answer quotes one rule instead of half of two. PT: O regimento é dividido pelas próprias seções, então a resposta cita uma regra inteira em vez de metade de duas.
   - D-03 Slow work off the request / Trabalho pesado fora da requisição — EN: Transcription, OCR and indexing run in Celery workers; the inbox updates over WebSockets. PT: Transcrição, OCR e indexação rodam em workers do Celery; a caixa de entrada atualiza por WebSockets.
-- **Figures**: FIG. 1 manager inbox, FIG. 2 resident chat, FIG. 3 indexed documents — **placeholder until demo screenshots exist** (use `/dialog-test/` for a chat without real residents)
+- **Figures** (`content/images/leia-*.png`): FIG. 1 landing page with a resident booking the party room on WhatsApp, FIG. 2 sign-in page, FIG. 3 manager overview on a new account
 
 ### PRJ-03 · Nextech (`/work/nextech`)
 
 - **Summary** — EN: AI assistants on WhatsApp for clinics: answering, qualifying, booking and follow-up. PT: Assistentes de IA no WhatsApp para clínicas: atendimento, qualificação, agendamento e follow-up.
+- **Pitch** — EN: Fast answers, smart management. Nextech puts an AI assistant on the clinic's WhatsApp that replies in seconds, understands voice notes, tells real patients from casual questions and books against the clinic's real calendar, with no one on staff in the middle. Patients who stop replying get a follow-up, and everything lands in the clinic's CRM. PT: Atendimento ágil, gestão inteligente. A Nextech coloca no WhatsApp da clínica um assistente de IA que responde em segundos, entende áudio, separa quem quer marcar de quem só está perguntando e agenda direto na agenda real da clínica, sem ninguém da equipe no meio. Quem para de responder recebe follow-up, e tudo vai para o CRM da clínica.
 - **Role**: Founder and only developer / Fundador e único desenvolvedor
 - **Status**: In testing, not launched yet / Em testes, ainda não lançado
 - **Period**: 2026 – present / 2026 – hoje
@@ -166,9 +171,8 @@ Titles and descriptions reuse the copy above: home = `name · hero.eyebrow` + `h
   - D-02 Each clinic's secrets are encrypted / Segredos de cada clínica são criptografados — EN: WhatsApp and Google tokens belong to the clinic, so they are encrypted at rest in the database, not stored as infra secrets. PT: Os tokens de WhatsApp e Google pertencem à clínica, então ficam criptografados no banco, e não como segredo de infraestrutura.
   - D-03 Automation as code / Automação como código — EN: No n8n. Webhooks, AI orchestration, scheduling and billing live in the app, tested and versioned. PT: Nada de n8n. Webhooks, orquestração da IA, agendamento e cobrança ficam no app, testados e versionados.
 - **How I work on it** (good for the follow-up talk) — EN: One spec per session; the agent implements on `staging`; I review every PR to `main`; tests are the quality gate. PT: Uma spec por sessão; o agente implementa na `staging`; eu reviso todo PR para a `main`; os testes são o portão de qualidade.
-- **Figures**: FIG. 1 clinic dashboard, FIG. 2 calendar — **placeholder until demo screenshots exist** (`npm run demo:preparar` builds a demo account)
+- **Figures** (`content/images/nextech-*.png`): FIG. 1 landing page, FIG. 2 sign-in to the clinic panel, FIG. 3 clinic overview in demo mode (fictional data)
 
 ## Placeholder content (name it in the README)
 
-- Project figures until real demo screenshots replace them.
-- Any **[confirm]** item not answered.
+- None. The project figures are real screenshots.

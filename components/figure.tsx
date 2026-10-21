@@ -10,6 +10,18 @@ const aspects: Record<Aspect, string> = {
   standard: "aspect-4/3",
 };
 
+// The screenshots are wider than the frames, so object-cover crops the
+// sides; `position` keeps the part that matters in view.
+type Position = "left" | "center" | "right";
+
+const positions: Record<Position, string> = {
+  left: "object-left",
+  center: "object-center",
+  right: "object-right",
+};
+
+export type Screenshot = { src: StaticImageData; position?: Position };
+
 // A generic app screen: title bar, sidebar, a heading, rows, one accent block.
 function ScreenPlaceholder({ alt, aspect }: { alt: string; aspect: Aspect }) {
   return (
@@ -76,7 +88,7 @@ export function Thumbnail({ image, alt, sizes, className = "" }: ThumbnailProps)
 
 type FigureProps = {
   n: number;
-  image: StaticImageData | undefined;
+  image: Screenshot | undefined;
   caption: string;
   alt: string;
   aspect: Aspect;
@@ -91,11 +103,11 @@ export function Figure({ n, image, caption, alt, aspect, sizes, priority = false
     <figure className={`flex flex-col gap-2 ${className}`}>
       {image ? (
         <Image
-          src={image}
+          src={image.src}
           alt={alt}
           sizes={sizes}
           priority={priority}
-          className={`h-auto w-full border border-rule object-cover ${aspects[aspect]}`}
+          className={`h-auto w-full border border-rule object-cover ${positions[image.position ?? "center"]} ${aspects[aspect]}`}
         />
       ) : (
         <ScreenPlaceholder alt={alt} aspect={aspect} />

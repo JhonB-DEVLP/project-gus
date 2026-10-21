@@ -1,5 +1,15 @@
 import type { StaticImageData } from "next/image";
+import type { Screenshot } from "@/components/figure";
 import type { Locale } from "@/lib/i18n";
+import leia1 from "./images/leia-1.png";
+import leia2 from "./images/leia-2.png";
+import leia3 from "./images/leia-3.png";
+import nextech1 from "./images/nextech-1.png";
+import nextech2 from "./images/nextech-2.png";
+import nextech3 from "./images/nextech-3.png";
+import zapichat1 from "./images/zapichat-1.png";
+import zapichat2 from "./images/zapichat-2.png";
+import zapichat3 from "./images/zapichat-3.png";
 
 // Project pages (docs/content.md, "Projects"). Shared facts sit on the
 // project; everything a reader sees in one language sits in `copy`.
@@ -15,6 +25,8 @@ type Decision = { title: string; text: string };
 
 export type ProjectCopy = {
   summary: string;
+  // What the product does for its customer, in the product's own words.
+  pitch: string;
   role: string;
   // Shorter text for the home work list.
   list: { summary: string; role: string };
@@ -34,9 +46,9 @@ export type Project = {
   // Mono stack line in the home work list (same in both languages).
   stack: string;
   link: { href: string; label: string };
-  // Real screenshots, by figure index, and the home thumbnail. Until they
-  // exist the placeholder figure renders. TODO: demo screenshots.
-  images?: (StaticImageData | undefined)[];
+  // Screenshots by figure index, and the home thumbnail. A figure without
+  // one renders the drawn placeholder.
+  images?: (Screenshot | undefined)[];
   thumbnail?: StaticImageData;
   copy: Record<Locale, ProjectCopy>;
 };
@@ -51,9 +63,13 @@ export const projects: Project[] = [
     status: "production",
     stack: "React · TypeScript · Supabase · Meta Cloud API",
     link: { href: "https://zapichat.com.br/", label: "zapichat.com.br" },
+    images: [{ src: zapichat1 }, { src: zapichat2, position: "right" }, { src: zapichat3, position: "left" }],
+    thumbnail: zapichat1,
     copy: {
       en: {
         summary: "Multi-tenant CRM and customer service on WhatsApp.",
+        pitch:
+          "Smart customer-service automation. Zapichat brings a company's whole WhatsApp into one shared inbox on Meta's official API, with a CRM pipeline, scheduled bulk campaigns, automations and NPS surveys. Every company is isolated on the same platform, and managers see the whole pipeline instead of conversations scattered across phones.",
         role: "Full-stack developer",
         list: { summary: "Multi-tenant CRM and customer service on WhatsApp", role: "Full-stack developer" },
         specs: [
@@ -67,8 +83,18 @@ export const projects: Project[] = [
           { key: "infra", value: "Vercel · Sentry" },
         ],
         figures: [
-          { caption: "Shared inbox, demo account", alt: "Screenshot placeholder: Zapichat shared inbox" },
-          { caption: "CRM pipeline with deals by stage", alt: "Screenshot placeholder: Zapichat CRM pipeline" },
+          {
+            caption: "Landing page: the shared inbox with quick replies",
+            alt: "Zapichat landing page showing the shared inbox on desktop and phone, with a customer conversation and the quick replies panel",
+          },
+          {
+            caption: "Sign-in page",
+            alt: "Zapichat sign-in page with the headline “Venda mais. Responda melhor.” and the login form",
+          },
+          {
+            caption: "Company dashboard: quick actions and conversations that need attention",
+            alt: "Zapichat company dashboard with the side menu, a product news card, quick actions to reply, add a contact or send a bulk campaign, and conversations waiting for a reply",
+          },
         ],
         problem:
           "Sales and support teams run on WhatsApp, but conversations scatter across phones and nobody sees the pipeline.",
@@ -95,6 +121,8 @@ export const projects: Project[] = [
       },
       pt: {
         summary: "CRM e atendimento multi-tenant pelo WhatsApp.",
+        pitch:
+          "Automação inteligente de atendimento. O Zapichat reúne o WhatsApp da empresa inteira numa caixa de entrada só, pela API oficial da Meta, com funil de CRM, disparos em massa agendados, automações e pesquisas de NPS. Cada empresa fica isolada na mesma plataforma, e o gestor enxerga o funil inteiro em vez de conversas espalhadas pelos celulares.",
         role: "Desenvolvedor full stack",
         list: { summary: "CRM e atendimento multi-tenant pelo WhatsApp", role: "Desenvolvedor full stack" },
         specs: [
@@ -109,12 +137,16 @@ export const projects: Project[] = [
         ],
         figures: [
           {
-            caption: "Caixa de entrada compartilhada, conta demo",
-            alt: "Captura provisória: caixa de entrada compartilhada do Zapichat",
+            caption: "Landing page: a caixa de entrada com respostas rápidas",
+            alt: "Landing page do Zapichat mostrando a caixa de entrada no computador e no celular, com uma conversa de cliente e o painel de respostas rápidas",
           },
           {
-            caption: "Funil de CRM com negócios por etapa",
-            alt: "Captura provisória: funil de CRM do Zapichat",
+            caption: "Página de login",
+            alt: "Página de login do Zapichat com o título “Venda mais. Responda melhor.” e o formulário de acesso",
+          },
+          {
+            caption: "Painel da empresa: ações rápidas e conversas que precisam de atenção",
+            alt: "Painel da empresa no Zapichat com o menu lateral, um card de novidades do produto, ações rápidas para responder, adicionar contato ou fazer disparo em massa, e conversas aguardando resposta",
           },
         ],
         problem:
@@ -149,10 +181,14 @@ export const projects: Project[] = [
     status: "early",
     stack: "Django · LangChain · pgvector · AWS EC2",
     link: { href: "https://www.assistenteleia.com.br/", label: "assistenteleia.com.br" },
+    images: [{ src: leia1 }, { src: leia2 }, { src: leia3, position: "left" }],
+    thumbnail: leia1,
     copy: {
       en: {
         summary:
           "An AI assistant on WhatsApp that answers condominium residents and passes to the manager what needs a person.",
+        pitch:
+          "The manager sleeps; Léia answers. She talks to residents on the WhatsApp number the building already uses, at any hour, and handles everyday questions on her own (opening hours, rules, bills, bookings) from the condominium's own documents. When something is urgent or sensitive, she calls the person in charge. When a rule changes, the answer changes with it.",
         role: "CTO",
         list: { summary: "AI assistant that answers condominium residents", role: "CTO" },
         specs: [
@@ -163,11 +199,17 @@ export const projects: Project[] = [
           { key: "infra", value: "AWS EC2" },
         ],
         figures: [
-          { caption: "Manager inbox, demo account", alt: "Screenshot placeholder: Léia manager inbox" },
-          { caption: "A resident asks on WhatsApp", alt: "Screenshot placeholder: resident chat on WhatsApp" },
           {
-            caption: "Building documents indexed for answers",
-            alt: "Screenshot placeholder: building documents indexed by Léia",
+            caption: "Landing page: a resident books the party room on WhatsApp",
+            alt: "Léia landing page with the headline “O síndico dorme. A léia responde.” beside a WhatsApp chat where a resident books the party room",
+          },
+          {
+            caption: "Sign-in page",
+            alt: "Léia sign-in page: user and password form over a drawn city skyline",
+          },
+          {
+            caption: "Manager overview on a new account: setup, plan quota and service numbers",
+            alt: "Léia manager dashboard on a new account: assistant, WhatsApp and document base not set up yet, 0 of 1,000 plan conversations used and service counters at zero",
           },
         ],
         problem:
@@ -201,6 +243,8 @@ export const projects: Project[] = [
       pt: {
         summary:
           "Uma assistente de IA no WhatsApp que responde aos moradores do condomínio e passa para o síndico o que precisa de uma pessoa.",
+        pitch:
+          "O síndico dorme, a Léia responde. Ela atende os moradores no número de WhatsApp que o prédio já usa, a qualquer hora, e resolve sozinha as dúvidas do dia a dia, como horários, regras, boletos e reservas, com base nos documentos do próprio condomínio. Quando o assunto é urgente ou sensível, ela chama o responsável. Se a regra muda, a resposta muda junto.",
         role: "CTO",
         list: { summary: "Assistente de IA que responde aos moradores do condomínio", role: "CTO" },
         specs: [
@@ -212,16 +256,16 @@ export const projects: Project[] = [
         ],
         figures: [
           {
-            caption: "Caixa de entrada do síndico, conta demo",
-            alt: "Captura provisória: caixa de entrada do síndico na Léia",
+            caption: "Landing page: um morador reserva o salão de festas pelo WhatsApp",
+            alt: "Landing page da Léia com o título “O síndico dorme. A léia responde.” ao lado de uma conversa de WhatsApp em que um morador reserva o salão de festas",
           },
           {
-            caption: "Um morador pergunta pelo WhatsApp",
-            alt: "Captura provisória: conversa de um morador no WhatsApp",
+            caption: "Página de login",
+            alt: "Página de login da Léia: formulário de usuário e senha sobre o desenho de uma cidade",
           },
           {
-            caption: "Documentos do prédio indexados para as respostas",
-            alt: "Captura provisória: documentos do prédio indexados pela Léia",
+            caption: "Visão geral do síndico numa conta nova: configuração, cota do plano e números do atendimento",
+            alt: "Painel do síndico na Léia numa conta nova: assistente, WhatsApp e base de documentos ainda não configurados, 0 de 1.000 conversas do plano usadas e contadores de atendimento zerados",
           },
         ],
         problem:
@@ -261,9 +305,13 @@ export const projects: Project[] = [
     status: "testing",
     stack: "Next.js · Supabase · OpenRouter · Resend",
     link: { href: "https://nextech.ia.br/", label: "nextech.ia.br" },
+    images: [{ src: nextech1 }, { src: nextech2 }, { src: nextech3, position: "left" }],
+    thumbnail: nextech1,
     copy: {
       en: {
         summary: "AI assistants on WhatsApp for clinics: answering, qualifying, booking and follow-up.",
+        pitch:
+          "Fast answers, smart management. Nextech puts an AI assistant on the clinic's WhatsApp that replies in seconds, understands voice notes, tells real patients from casual questions and books against the clinic's real calendar, with no one on staff in the middle. Patients who stop replying get a follow-up, and everything lands in the clinic's CRM.",
         role: "Founder and only developer",
         list: { summary: "AI assistants for clinics: booking and follow-up", role: "Founder and developer" },
         specs: [
@@ -274,10 +322,17 @@ export const projects: Project[] = [
           { key: "integrations", value: "Google Calendar (OAuth per clinic) · Resend · Asaas" },
         ],
         figures: [
-          { caption: "Clinic dashboard, demo account", alt: "Screenshot placeholder: Nextech clinic dashboard" },
           {
-            caption: "Bookings synced with the clinic's calendar",
-            alt: "Screenshot placeholder: Nextech booking calendar",
+            caption: "Landing page: AI assistants for clinics",
+            alt: "Nextech landing page with the headline “Atendimento ágil. Nextech AI.” and buttons to book a meeting or see a demo",
+          },
+          {
+            caption: "Sign-in to the clinic panel",
+            alt: "Nextech sign-in page for the clinic panel, with email and password fields",
+          },
+          {
+            caption: "Clinic overview with fictional demo data: what needs attention",
+            alt: "Nextech clinic dashboard in demo mode with fictional data, listing four items that need attention, such as an urgent patient report and a template rejected by Meta",
           },
         ],
         problem:
@@ -308,6 +363,8 @@ export const projects: Project[] = [
       },
       pt: {
         summary: "Assistentes de IA no WhatsApp para clínicas: atendimento, qualificação, agendamento e follow-up.",
+        pitch:
+          "Atendimento ágil, gestão inteligente. A Nextech coloca no WhatsApp da clínica um assistente de IA que responde em segundos, entende áudio, separa quem quer marcar de quem só está perguntando e agenda direto na agenda real da clínica, sem ninguém da equipe no meio. Quem para de responder recebe follow-up, e tudo vai para o CRM da clínica.",
         role: "Fundador e único desenvolvedor",
         list: { summary: "Assistentes de IA para clínicas: agendamento e follow-up", role: "Fundador e desenvolvedor" },
         specs: [
@@ -318,10 +375,17 @@ export const projects: Project[] = [
           { key: "integrations", value: "Google Agenda (OAuth por clínica) · Resend · Asaas" },
         ],
         figures: [
-          { caption: "Painel da clínica, conta demo", alt: "Captura provisória: painel da clínica na Nextech" },
           {
-            caption: "Agendamentos sincronizados com a agenda da clínica",
-            alt: "Captura provisória: agenda de consultas da Nextech",
+            caption: "Landing page: assistentes de IA para clínicas",
+            alt: "Landing page da Nextech com o título “Atendimento ágil. Nextech AI.” e botões para agendar uma reunião ou ver a demonstração",
+          },
+          {
+            caption: "Login no painel da clínica",
+            alt: "Página de login do painel da clínica na Nextech, com campos de e-mail e senha",
+          },
+          {
+            caption: "Visão geral da clínica com dados fictícios de demonstração: o que precisa de atenção",
+            alt: "Painel da clínica na Nextech em modo demonstração com dados fictícios, listando quatro itens que precisam de atenção, como um relato urgente de paciente e um template rejeitado pela Meta",
           },
         ],
         problem:

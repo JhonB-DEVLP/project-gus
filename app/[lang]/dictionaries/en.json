@@ -123,6 +123,8 @@
     "pager": "Projects",
     "previous": "Previous project",
     "next": "Next project",
+    "visit": "Visit site",
+    "newTab": "opens in a new tab",
     "spec": {
       "role": "Role",
       "status": "Status",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
+import { buttonClass } from "@/components/button";
 import { Container } from "@/components/container";
 import { Figure } from "@/components/figure";
 import { PageShell } from "@/components/page-shell";
@@ -99,6 +100,17 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
               </span>
             </h1>
             <p className="title-after max-w-140 text-lead">{copy.summary}</p>
+            <p className="title-after max-w-140 text-muted">{copy.pitch}</p>
+            <a
+              href={project.link.href}
+              target="_blank"
+              rel="noopener"
+              className={`title-after self-start ${buttonClass("outline")}`}
+            >
+              {t.visit}
+              <span aria-hidden="true">↗</span>
+              <span className="sr-only">({t.newTab})</span>
+            </a>
           </div>
           <dl className="border-t-2 border-fg lg:col-span-5">
             {specRows.map((row) => (

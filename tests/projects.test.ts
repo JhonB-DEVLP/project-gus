@@ -40,6 +40,15 @@ describe("content/projects", () => {
     },
   );
 
+  it.each(projects.map((project) => [project.slug, project] as const))(
+    "%s has a screenshot for every figure and a thumbnail",
+    (_, project) => {
+      expect(project.images).toHaveLength(project.copy.en.figures.length);
+      for (const image of project.images ?? []) expect(image?.src).toBeTruthy();
+      expect(project.thumbnail).toBeTruthy();
+    },
+  );
+
   it("finds a project by slug and nothing for an unknown one", () => {
     expect(getProject("leia")?.name).toBe("Léia");
     expect(getProject("does-not-exist")).toBeUndefined();
