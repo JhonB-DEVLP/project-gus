@@ -1,0 +1,26 @@
+{
+  "name": "Jhon Silva",
+  "rev": "REV 2026.10",
+  "skip": "Pular para o conteúdo",
+  "nav": {
+    "label": "Principal",
+    "work": "Trabalhos",
+    "live": "Ao vivo",
+    "contact": "Contato",
+    "menu": "Menu"
+  },
+  "theme": {
+    "label": "Tema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Auto"
+  },
+  "lang": {
+    "label": "Idioma"
+  },
+  "footer": {
+    "built": "Feito com Next.js",
+    "source": "Código no GitHub",
+    "sheet": "Folha 1 de 1"
+  }
+}

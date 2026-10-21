@@ -24,6 +24,9 @@
   --dur-base: 250ms;
   --dur-hero: 800ms;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* Display width: Archivo's wdth axis */
+  --stretch-condensed: 70%;
 }
 
 /* Color, dark: follows the OS unless the user picked light */
@@ -106,6 +109,42 @@
   --radius-control: 2px;
 
   --ease-standard: var(--ease);
+}
+
+@layer base {
+  /* Visible focus on every interactive element (spec §9). */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  button,
+  summary {
+    cursor: pointer;
+  }
+
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+/* Every animated element has its final state as the base style,
+   so switching motion off shows the finished page. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@utility font-condensed {
+  font-stretch: var(--stretch-condensed);
 }
 
 @utility duration-fast {

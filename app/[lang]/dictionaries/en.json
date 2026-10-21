@@ -1,0 +1,26 @@
+{
+  "name": "Jhon Silva",
+  "rev": "REV 2026.10",
+  "skip": "Skip to content",
+  "nav": {
+    "label": "Main",
+    "work": "Work",
+    "live": "Live",
+    "contact": "Contact",
+    "menu": "Menu"
+  },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "Auto"
+  },
+  "lang": {
+    "label": "Language"
+  },
+  "footer": {
+    "built": "Built with Next.js",
+    "source": "Source on GitHub",
+    "sheet": "Sheet 1 of 1"
+  }
+}
