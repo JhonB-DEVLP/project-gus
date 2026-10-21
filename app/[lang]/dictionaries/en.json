@@ -79,6 +79,42 @@
     "text": "Building something that needs to talk to people? Send me a message.",
     "cta": "Write to me"
   },
+  "contact": {
+    "title": "Send a message",
+    "lead": "Every field is required.",
+    "field": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "emailPlaceholder": "name@company.com",
+      "company": "Company"
+    },
+    "count": "{count} / {max}",
+    "submit": "Send message",
+    "sending": "Sending…",
+    "sent": {
+      "code": "OK",
+      "title": "Message sent",
+      "text": "Thanks, {name}. It's in my inbox."
+    },
+    "rateLimited": {
+      "code": "ERR-429",
+      "title": "Too many messages",
+      "text": "You sent several messages in a short time. Try again in {minutes} min."
+    },
+    "server": {
+      "code": "ERR-500",
+      "title": "Not sent",
+      "text": "The message didn't go through. Your text is still in the form; try again."
+    },
+    "err": {
+      "code": "ERR",
+      "summary": "Fix the fields below and send again.",
+      "name": "Enter your name (2 to 80 characters).",
+      "email": "Enter an email like name@company.com.",
+      "message": "Write at least 10 characters (max 2000)."
+    }
+  },
   "project": {
     "breadcrumb": "Breadcrumb",
     "screenshots": "Screenshots",

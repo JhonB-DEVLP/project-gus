@@ -9,6 +9,9 @@ const variants: Record<ButtonVariant, string> = {
   accent: "border-transparent bg-accent text-on-accent hover:bg-fg hover:text-bg",
 };
 
+export const buttonBase =
+  "inline-flex min-h-11 items-center justify-center gap-2 rounded-control border px-5 py-3 font-mono text-data tracking-wider uppercase transition-colors duration-fast ease-standard";
+
 export function buttonClass(variant: ButtonVariant) {
-  return `inline-flex min-h-11 items-center justify-center gap-2 rounded-control border px-5 py-3 font-mono text-data tracking-wider uppercase transition-colors duration-fast ease-standard ${variants[variant]}`;
+  return `${buttonBase} ${variants[variant]}`;
 }

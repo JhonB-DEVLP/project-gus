@@ -79,6 +79,42 @@
     "text": "Está construindo algo que precisa conversar com pessoas? Me mande uma mensagem.",
     "cta": "Escrever"
   },
+  "contact": {
+    "title": "Envie uma mensagem",
+    "lead": "Todos os campos são obrigatórios.",
+    "field": {
+      "name": "Nome",
+      "email": "E-mail",
+      "message": "Mensagem",
+      "emailPlaceholder": "nome@empresa.com",
+      "company": "Empresa"
+    },
+    "count": "{count} / {max}",
+    "submit": "Enviar mensagem",
+    "sending": "Enviando…",
+    "sent": {
+      "code": "OK",
+      "title": "Mensagem enviada",
+      "text": "Obrigado, {name}. Ela já está na minha caixa de entrada."
+    },
+    "rateLimited": {
+      "code": "ERR-429",
+      "title": "Muitas mensagens",
+      "text": "Você enviou várias mensagens em pouco tempo. Tente de novo em {minutes} min."
+    },
+    "server": {
+      "code": "ERR-500",
+      "title": "Não enviada",
+      "text": "A mensagem não foi enviada. Seu texto continua no formulário; tente de novo."
+    },
+    "err": {
+      "code": "ERR",
+      "summary": "Corrija os campos abaixo e envie de novo.",
+      "name": "Informe seu nome (de 2 a 80 caracteres).",
+      "email": "Informe um e-mail como nome@empresa.com.",
+      "message": "Escreva pelo menos 10 caracteres (máximo 2000)."
+    }
+  },
   "project": {
     "breadcrumb": "Trilha de navegação",
     "screenshots": "Capturas de tela",
