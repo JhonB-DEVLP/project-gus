@@ -1,7 +1,9 @@
 import Image, { type StaticImageData } from "next/image";
 
-// Datasheet figures. A real screenshot renders with next/image; until one
-// exists, a drawn placeholder stands in (named in the caption and alt).
+// Datasheet figures. A real screenshot renders with next/image at its own
+// proportions, never cropped; the static import's width and height reserve
+// the space, so nothing shifts. Until one exists, a drawn placeholder stands
+// in (named in the caption and alt) at the frame's aspect ratio.
 
 type Aspect = "wide" | "standard";
 
@@ -9,18 +11,6 @@ const aspects: Record<Aspect, string> = {
   wide: "aspect-16/10",
   standard: "aspect-4/3",
 };
-
-// The screenshots are wider than the frames, so object-cover crops the
-// sides; `position` keeps the part that matters in view.
-type Position = "left" | "center" | "right";
-
-const positions: Record<Position, string> = {
-  left: "object-left",
-  center: "object-center",
-  right: "object-right",
-};
-
-export type Screenshot = { src: StaticImageData; position?: Position };
 
 // A generic app screen: title bar, sidebar, a heading, rows, one accent block.
 function ScreenPlaceholder({ alt, aspect }: { alt: string; aspect: Aspect }) {
@@ -77,7 +67,8 @@ export function Thumbnail({ image, alt, sizes, className = "" }: ThumbnailProps)
     <span className="block overflow-hidden border border-rule">
       <span className={`block ${className}`}>
         {image ? (
-          <Image src={image} alt={alt} sizes={sizes} className="aspect-16/10 h-auto w-full object-cover" />
+          // The 16:10 box keeps the rows aligned; contain shows the whole screenshot.
+          <Image src={image} alt={alt} sizes={sizes} className="aspect-16/10 h-auto w-full bg-surface object-contain" />
         ) : (
           <ThumbPlaceholder alt={alt} />
         )}
@@ -88,7 +79,7 @@ export function Thumbnail({ image, alt, sizes, className = "" }: ThumbnailProps)
 
 type FigureProps = {
   n: number;
-  image: Screenshot | undefined;
+  image: StaticImageData | undefined;
   caption: string;
   alt: string;
   aspect: Aspect;
@@ -102,13 +93,7 @@ export function Figure({ n, image, caption, alt, aspect, sizes, priority = false
   return (
     <figure className={`flex flex-col gap-2 ${className}`}>
       {image ? (
-        <Image
-          src={image.src}
-          alt={alt}
-          sizes={sizes}
-          priority={priority}
-          className={`h-auto w-full border border-rule object-cover ${positions[image.position ?? "center"]} ${aspects[aspect]}`}
-        />
+        <Image src={image} alt={alt} sizes={sizes} priority={priority} className="h-auto w-full border border-rule" />
       ) : (
         <ScreenPlaceholder alt={alt} aspect={aspect} />
       )}

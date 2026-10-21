@@ -70,7 +70,7 @@ Everything is a Server Component except these:
 - **Contact as a Server Action.** It works without JavaScript and needs no client fetch code. The cost: there is no public REST endpoint for other clients. The logic is a pure function with injected dependencies, so every branch is unit tested without the network (details below).
 - **Live data from the Hugging Face Hub** (trending models). It's a public API with no key, so there's no secret and no quota per user. Fetched at request time with a 4 s timeout; any failure becomes the error state instead of a thrown error.
 - **Tokens in one place.** `app/globals.css` is the source of truth. `lib/tokens.ts` mirrors the colors for `ImageResponse`, which can't read CSS variables, and `tests/tokens.test.ts` fails if the two drift.
-- **Fonts and images.** `next/font` for Archivo (variable, with the `wdth` axis for the condensed display type) and JetBrains Mono. Project screenshots are static imports through `next/image` (served as WebP in responsive sizes from the PNGs in `content/images/`; only FIG. 1 is `priority`). They are wider than the 16:10 and 4:3 frames, so each one sets the `object-position` that keeps what matters in view.
+- **Fonts and images.** `next/font` for Archivo (variable, with the `wdth` axis for the condensed display type) and JetBrains Mono. Project screenshots are static imports through `next/image` (served as WebP in responsive sizes from the PNGs in `content/images/`; only FIG. 1 is `priority`). They render at their own proportions, never cropped, and the static import's width and height reserve the space (no layout shift). The home thumbnails keep a 16:10 box so the rows line up, with `object-contain` on the surface color.
 
 ## Contact form
 

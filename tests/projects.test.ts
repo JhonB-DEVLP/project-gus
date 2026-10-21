@@ -44,7 +44,7 @@ describe("content/projects", () => {
     "%s has a screenshot for every figure and a thumbnail",
     (_, project) => {
       expect(project.images).toHaveLength(project.copy.en.figures.length);
-      for (const image of project.images ?? []) expect(image?.src).toBeTruthy();
+      for (const image of project.images ?? []) expect(image).toBeTruthy();
       expect(project.thumbnail).toBeTruthy();
     },
   );

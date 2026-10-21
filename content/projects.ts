@@ -1,5 +1,4 @@
 import type { StaticImageData } from "next/image";
-import type { Screenshot } from "@/components/figure";
 import type { Locale } from "@/lib/i18n";
 import leia1 from "./images/leia-1.png";
 import leia2 from "./images/leia-2.png";
@@ -48,7 +47,7 @@ export type Project = {
   link: { href: string; label: string };
   // Screenshots by figure index, and the home thumbnail. A figure without
   // one renders the drawn placeholder.
-  images?: (Screenshot | undefined)[];
+  images?: (StaticImageData | undefined)[];
   thumbnail?: StaticImageData;
   copy: Record<Locale, ProjectCopy>;
 };
@@ -63,7 +62,7 @@ export const projects: Project[] = [
     status: "production",
     stack: "React · TypeScript · Supabase · Meta Cloud API",
     link: { href: "https://zapichat.com.br/", label: "zapichat.com.br" },
-    images: [{ src: zapichat1 }, { src: zapichat2, position: "right" }, { src: zapichat3, position: "left" }],
+    images: [zapichat1, zapichat2, zapichat3],
     thumbnail: zapichat1,
     copy: {
       en: {
@@ -181,7 +180,7 @@ export const projects: Project[] = [
     status: "early",
     stack: "Django · LangChain · pgvector · AWS EC2",
     link: { href: "https://www.assistenteleia.com.br/", label: "assistenteleia.com.br" },
-    images: [{ src: leia1 }, { src: leia2 }, { src: leia3, position: "left" }],
+    images: [leia1, leia2, leia3],
     thumbnail: leia1,
     copy: {
       en: {
@@ -305,7 +304,7 @@ export const projects: Project[] = [
     status: "testing",
     stack: "Next.js · Supabase · OpenRouter · Resend",
     link: { href: "https://nextech.ia.br/", label: "nextech.ia.br" },
-    images: [{ src: nextech1 }, { src: nextech2 }, { src: nextech3, position: "left" }],
+    images: [nextech1, nextech2, nextech3],
     thumbnail: nextech1,
     copy: {
       en: {
