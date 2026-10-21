@@ -1,0 +1,6 @@
+# Local-only files (the brief is the company's test, not ours to publish)
+*.local.*
+
+# Secrets
+.env
+.env*.local
