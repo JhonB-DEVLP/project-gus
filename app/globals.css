@@ -85,13 +85,17 @@
   /*
    * Five sizes plus the display, nothing else.
    * Fluid sizes scale linearly from 390px to 1280px viewports.
-   * Display instead tracks the usable width (viewport minus both 64px
-   * gutters) so a hero line up to 7em wide stays on one line (the longest
-   * today is "for any problem.", 6.54em): the divisor is that width plus
-   * room for a classic scrollbar.
+   * Display is the smaller of two limits, between 64px and 128px:
+   * - width: the usable width (viewport minus both 64px gutters) so a hero
+   *   line up to 7em wide stays on one line (the longest today is "for any
+   *   problem.", 6.54em); the divisor is that width plus room for a
+   *   classic scrollbar.
+   * - height: the whole hero fits in the first screen. Each h1 line takes
+   *   0.9em (0.86 line height + 0.04em mask), the 4-line PT title 3.6em;
+   *   header, paddings, eyebrow, rule, lead and buttons take ~27rem.
    */
   --text-*: initial;
-  --text-display: clamp(4rem, calc((100vw - 8rem) / 7.2), 11rem);
+  --text-display: clamp(4rem, min((100vw - 8rem) / 7.2, (100vh - 27rem) / 3.6), 8rem);
   --text-display--line-height: 0.86;
   --text-display--font-weight: 700;
   --text-title: clamp(1.75rem, 1.6404rem + 0.4494vw, 2rem);

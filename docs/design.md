@@ -59,7 +59,7 @@ Two families: **Archivo** (display and body; display uses the condensed width, `
 
 | Token | Size (mobile → desktop) | Line height | Use |
 |---|---|---|---|
-| `display` | 64px → 176px, `clamp()` | 0.86 | Home `h1`, project title |
+| `display` | 64px → 128px, `clamp()` on width and height | 0.86 | Home `h1`, project title, contact and 404 titles. Capped by viewport height so the whole hero (eyebrow, title, rule, lead, buttons) fits in the first screen at 1280×720 and 1920×1080, in both languages |
 | `title` | 28px → 32px | 1.1 | Section titles, project names in lists |
 | `lead` | 17px → 20px | 1.5 | Hero intro, contact intro |
 | `body` | 16px | 1.6 | Running text, max 65ch |
