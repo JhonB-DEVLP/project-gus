@@ -25,8 +25,8 @@ All copy for the site. The agent moves it into `app/[lang]/dictionaries/{en,pt}.
 | Key | EN | PT |
 |---|---|---|
 | hero.eyebrow | Full-stack engineer · AI products | Engenheiro full stack · Produtos com IA |
-| hero.title (lines) | I build / any solution / for any problem. | Eu desenvolvo / qualquer solução / para qualquer / problema. |
-| hero.lead | Full-stack engineer working across Next.js, TypeScript, Python and AWS. Developer at Zapichat, CTO at Léia, founder of Nextech. | Engenheiro full stack com Next.js, TypeScript, Python e AWS. Desenvolvedor no Zapichat, CTO da Léia e fundador da Nextech. |
+| hero.title (lines) | I build / AI solutions / for any problem. | Crio soluções / com IA para / qualquer / problema. |
+| hero.lead | SaaS, automations and WhatsApp campaigns, from idea to production. Developer at Zapichat, CTO at Léia, founder of Nextech. | SaaS, automações e disparos no WhatsApp, da ideia à produção. Desenvolvedor no Zapichat, CTO da Léia e fundador da Nextech. |
 | hero.ctaWork | See the work | Ver os trabalhos |
 | hero.ctaContact | Get in touch | Falar comigo |
 | specs.title | General specifications | Especificações gerais |

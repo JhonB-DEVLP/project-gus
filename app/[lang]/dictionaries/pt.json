@@ -25,8 +25,8 @@
   },
   "hero": {
     "eyebrow": "Engenheiro full stack · Produtos com IA",
-    "title": ["Eu desenvolvo", "qualquer solução", "para qualquer", "problema."],
-    "lead": "Engenheiro full stack com Next.js, TypeScript, Python e AWS. Desenvolvedor no Zapichat, CTO da Léia e fundador da Nextech.",
+    "title": ["Crio soluções", "com IA para", "qualquer", "problema."],
+    "lead": "SaaS, automações e disparos no WhatsApp, da ideia à produção. Desenvolvedor no Zapichat, CTO da Léia e fundador da Nextech.",
     "ctaWork": "Ver os trabalhos",
     "ctaContact": "Falar comigo"
   },

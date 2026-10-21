@@ -85,9 +85,9 @@
    * Five sizes plus the display, nothing else.
    * Fluid sizes scale linearly from 390px to 1280px viewports.
    * Display instead tracks the usable width (viewport minus both 64px
-   * gutters) so the longest hero line in either language ("qualquer
-   * solução", 7.04em wide) stays on one line: the divisor is that width
-   * plus room for a classic scrollbar.
+   * gutters) so a hero line up to 7em wide stays on one line (the longest
+   * today is "for any problem.", 6.54em): the divisor is that width plus
+   * room for a classic scrollbar.
    */
   --text-*: initial;
   --text-display: clamp(4rem, calc((100vw - 8rem) / 7.2), 11rem);
