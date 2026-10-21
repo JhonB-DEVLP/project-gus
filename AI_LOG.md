@@ -4,7 +4,7 @@
 
 ## Tools and models
 
-- **Claude (chat), Opus** — planning before the build: reading the brief, design direction and palette (with contrast checks), the canvas preview, the spec, the copy in EN/PT and one prompt per milestone. About 3 h, before the build, counted in the total in `PLAN.md`. Everything it produced is in `docs/`. Transcript: `docs/sessions/00-planning.md`.
+- **Claude (chat), Opus** — planning before the build: reading the brief, design direction and palette (with contrast checks), the canvas preview, the spec, the copy in EN/PT and one prompt per milestone. About 1 h 30 of active time (the chat spans longer because I was working for two clients in between), before the build, counted in the total in `PLAN.md`. Everything it produced is in `docs/`. Transcript: `docs/sessions/00-planning.md`.
 - **Claude Code, [model]** — the build, one milestone per session.
 - Skills: frontend-design, emil-design-eng, react-best-practices, verification-before-completion, executing-plans, webapp-testing. Why each: [one line each].
 
