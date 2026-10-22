@@ -48,11 +48,7 @@ Run `/check`. A task is done only when all of these pass:
 ## Skills in use
 
 - `frontend-design` (Anthropic) — keep the design away from generic defaults
-- `emil-design-eng` — polish: states, focus, hover, motion details
-- `react-best-practices` (Vercel Labs) — RSC, composition, performance
-- `verification-before-completion` (obra/superpowers) — verify before claiming done
 - `executing-plans` + `using-superpowers` (obra/superpowers) — keep context across long tasks
-- `webapp-testing` — Playwright checks and screenshots
 
 ## Commands
 
