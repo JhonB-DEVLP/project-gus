@@ -11,11 +11,10 @@ Time box: 6 h of active work, hard limit 8 h. The total below counts everything,
 | M3 | Live data: Hugging Face fetch, Suspense, loading / error / empty states, count-up | 30 min | 20 min | |
 | M4 | Contact: schema, Server Action, typed errors, honeypot, rate limit, Redis store + Resend, form states, unit tests | 55 min | 20 min | |
 | M5 | SEO + a11y: metadata, canonical, hreflang, OG images, sitemap, robots, JSON-LD, 404, E2E keyboard test, axe | 40 min | 30 min | |
-| M6 | Ship: deploy to Vercel, Lighthouse pass, screenshots, README, DESIGN.md, AI_LOG.md | 45 min | 40 min | Includes fixing a regression from M5: the 404 read a request header, which made the project and contact pages dynamic |
+| M6 | Ship: deploy to Vercel, Lighthouse pass, screenshots, README, DESIGN.md, AI_LOG.md | 45 min | 40 min | Includes fixing a regression from M5: the 404 read a request header, which made the project and contact pages dynamic. Measured with PageSpeed Insights on production instead of local Lighthouse, because my network's DNS added ~4.5 s |
+| — | After M6: real screenshots on the project pages, pitch and site links | — | not counted | The screenshots already existed; this was swapping the placeholders and adding the links |
 | | **Build** | **5 h 00** | **3 h 50** | |
-| | **Total with planning** | **6 h 30** | **5 h 20** | Over the 6 h target, under the 8 h limit. The build estimates are shorter because the spec and prompts were written first. |
-
-Optional if time is left: view transition from the work list to the project page.
+| | **Total with planning** | **6 h 30** | **5 h 20** | The estimate went over the 6 h target; the actual time stayed under it. The build went faster than estimated because the spec and prompts were written first. |
 
 ## Not finished
 
@@ -28,3 +27,4 @@ Optional if time is left: view transition from the work list to the project page
 - Vercel Speed Insights for real INP.
 - Lighthouse in CI, with the ≥ 90 budget as a failing check.
 - A Claude Code hook that runs the typecheck after each edit.
+- A view transition from the work list to the project page (planned as optional; not done).
